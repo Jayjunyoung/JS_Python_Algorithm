@@ -1,5 +1,4 @@
 def solve():
-    N = int(input())  # 첫 번째 입력값, 설탕의 총량
     answer = -1
     
     five_pack = N // 5  # 5로 나눈 몫을 구함
@@ -16,4 +15,5 @@ def solve():
     print(answer)
 
 if __name__ == "__main__":
+    N = int(input())  # 첫 번째 입력값, 설탕의 총량
     solve()  # 문제 해결 함수 호출
