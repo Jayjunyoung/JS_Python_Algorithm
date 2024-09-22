@@ -8,6 +8,7 @@ def solve() :
             i += int(j)
         generated_sum.add(i)   
 
+    # 생성자가 아닌 것만 남게 됌
     newSum = sorted(naturul_sum - generated_sum)
     for i in newSum:
         print(i)
