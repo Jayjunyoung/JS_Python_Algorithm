@@ -7,8 +7,8 @@ def solve(N, Array):
     cumulative_sum = 0
 
     for i in range(N):  # 0부터 N-1까지 반복
-        cumulative_sum += Array[i]  # 현재까지의 합을 누적
-        answer += cumulative_sum  # 각 단계에서 누적합을 더함
+       cumulative_sum += Array[i]
+       answer += cumulative_sum
 
     print(answer)
 

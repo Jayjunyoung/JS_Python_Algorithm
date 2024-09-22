@@ -4,12 +4,10 @@ def solve(N, K):
     coins = []
 
     for _ in range(N) :
-        coins.append(int(input()))
+        coins.append(int(input()))#배열에 추가하는 메소드
     
     #reverse True 함으로써 내림차순 정렬
     coins.sort(reverse=True)
-
-    answer = 0
 
     for coin in coins :
         if K >= coin : #몫 만큼 더해주기
