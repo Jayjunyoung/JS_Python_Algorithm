@@ -23,4 +23,4 @@ def solution(numbers):
         if checkPrime(i) :
             answer.append(i)
             
-    return len(set(answer))        
+    return len(set(answer)) #중복 제거하고 최종 배열 길이 출력       
