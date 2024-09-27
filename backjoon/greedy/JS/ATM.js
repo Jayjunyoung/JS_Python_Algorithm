@@ -10,15 +10,13 @@ const people = input[0].split(" ").map(Number);
 //오름차순 정렬
 people.sort((a, b) => a - b);
 
-let total = 0;
+//누적값을 담는 변수
+let sum = 0;
+let cumulative = 0;
 
 for (let i = 0; i < n; i++) {
-  let sum = people[i];
-  for (let j = 0; j < i; j++) {
-    sum += people[j];
-  }
-
-  total += sum;
+  cumulative += people[i];
+  sum += cumulative;
 }
 
-console.log(total);
+console.log(sum);
