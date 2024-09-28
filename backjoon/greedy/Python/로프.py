@@ -14,7 +14,8 @@ def solve(N, Array):
 
 if __name__ == "__main__":
     input = sys.stdin.read  # 여러 줄 입력을 받기 위한 처리
-    
+    input = sys.stdin.read
+
     data = input().strip().split()  # 공백으로 입력을 나누기
     
     N = int(data[0])  # 첫 번째 입력값
