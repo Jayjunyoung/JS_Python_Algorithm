@@ -9,6 +9,7 @@ def checkPrime(n) :
             return False
     return True
 
+
 def solution(numbers):
     answer = []
     numbers = list(numbers)
@@ -18,7 +19,7 @@ def solution(numbers):
         # numbers 배열에서 i 갯수 만큼 골라 순열을 만들겠다
         temp += list(permutations(numbers, i))
     num = [int(''.join(t)) for t in temp]
-        
+ 
     for i in num : #num까지 반복문 돌려
         if checkPrime(i) :
             answer.append(i)
