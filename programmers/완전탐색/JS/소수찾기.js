@@ -6,15 +6,15 @@ const getPer = (str) => {
   //str을 기반으로 배열을 만들어라
   const answer = [];
   const n = str.length; //반복문 용도
-  const ch = Array.from({ length: n }, () => 0);
+  const ch = Array.from({ length: n }, () => false);
   const dfs = (curStr) => {
     //백트래킹 사용
     answer.push(+curStr);
     for (let i = 0; i < n; i++) {
-      if (ch[i] === 0) {
-        ch[i] = 1;
+      if (ch[i] === false) {
+        ch[i] = true;
         dfs(curStr + str[i]);
-        ch[i] = 0;
+        ch[i] = false;
       }
     }
   };

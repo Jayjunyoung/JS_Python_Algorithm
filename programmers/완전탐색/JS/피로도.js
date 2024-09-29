@@ -17,6 +17,6 @@ function solution(k, dungeons) {
     });
   };
   //dfs 함수 로직에서 에러가 남
-  dfs(0, k); // dfs(탐험가능 count, 80 : 피로도)
+  dfs(0, k); // dfs(탐험가능한 경우의 수, 80 : 피로도)
   return Math.max(...answer);
 }
