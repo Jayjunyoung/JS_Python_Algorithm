@@ -8,7 +8,7 @@ function solution(diffs, times, limit) {
     mid = Math.floor((max + min) / 2);
     let spendTime = 0,
       over = false;
-    for (let i = 0; i < diffs.length; ++i) {
+    for (let i = 0; i < diffs.length; i++) {
       if (mid - diffs[i] < 0) {
         spendTime += (diffs[i] - mid) * (times[i] + times[i - 1]) + times[i];
       } else {
