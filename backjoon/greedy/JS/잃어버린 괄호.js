@@ -15,5 +15,4 @@ const numbers = input
   );
 
 const newValue = 2 * numbers[0] - numbers.reduce((a, b) => a + b, 0);
-
 console.log(newValue);

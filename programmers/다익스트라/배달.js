@@ -1,6 +1,4 @@
 function solution(N, road, K) {
-  let answer = 0;
-
   let distance = Array.from({ length: N + 1 }, () => Infinity);
   let graph = Array.from({ length: N + 1 }, () => []);
 
