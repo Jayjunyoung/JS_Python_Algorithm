@@ -16,6 +16,7 @@ const array = input[0]
 let result = 0;
 
 while (array.length > 1) {
+  //두 숫자를 더해야하기 때문에 array의 크기가 1보다 크도록 하기위해
   const sum = array[0] + array[array.length - 1];
   if (sum === m) {
     result++;
