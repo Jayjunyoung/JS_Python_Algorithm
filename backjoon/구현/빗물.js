@@ -8,6 +8,7 @@ const [h, w] = input.shift().split(" ").map(Number);
 const row = input[0].split(" ").map(Number);
 let count = 0;
 
+//w만큼 배열 만들기
 let leftMax = Array(w).fill(0);
 let rightMax = Array(w).fill(0);
 

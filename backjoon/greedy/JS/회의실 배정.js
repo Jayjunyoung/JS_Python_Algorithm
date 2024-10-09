@@ -16,10 +16,11 @@ const times = input
 
 let et = 0;
 
-times.forEach((time, i) => {
-  if (time[0] >= et) {
+times.forEach((t, i) => {
+  if (t[0] >= et) {
     answer++;
-    et = time[1];
+
+    et = t[1];
   }
 });
 

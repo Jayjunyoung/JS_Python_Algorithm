@@ -11,6 +11,7 @@ function solution(n, m) {
   const seq = [...Array(m)].fill(0); //[0]
   const visited = [...Array(n + 1)].fill(false); //[false, false, false, false]
   const dfs = (k) => {
+    //재귀 탈출 조건
     if (k === m) {
       const answer = [];
 
@@ -21,7 +22,9 @@ function solution(n, m) {
       return (result += `${answer.join(" ")}\n`);
     }
 
-    for (let i = 1; i <= N; i++) {
+    //재귀 호출
+
+    for (let i = 1; i <= n; i++) {
       if (!visited[i]) {
         seq[k] = i;
         visited[i] = true;

@@ -33,6 +33,7 @@ for (let i = 0; i < t; i++) {
 
     cnt += min;
   });
+
   answer.push(cnt);
 }
 

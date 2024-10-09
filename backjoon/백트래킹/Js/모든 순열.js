@@ -18,16 +18,15 @@ const dfs = (depth) => {
     }
 
     answer += result.join(" ") + "\n";
-    return;
   }
 
   for (let i = 0; i < n; i++) {
-    if (visited[i]) continue;
-
-    selecedNumber[depth] = i + 1;
-    visited[i] = true;
-    dfs(depth + 1);
-    visited[i] = false;
+    if (!visited[i]) {
+      selecedNumber[depth] = i + 1;
+      visited[i] = true;
+      dfs(depth + 1);
+      visited[i] = false;
+    }
   }
 };
 
