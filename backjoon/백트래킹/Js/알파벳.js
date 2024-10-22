@@ -1,0 +1,42 @@
+const input = require("fs")
+  .readFileSync(process.platform === "linux" ? "./dev/stdin" : "./input.txt")
+  .toString()
+  .trim()
+  .split("\n");
+
+const [r, c] = input.shift().split(" ").map(Number);
+
+const alphabet = input.map((v) => v.split(""));
+let visited = new Array(26).fill(false);
+
+const dir = [
+  [-1, 0],
+  [1, 0],
+  [0, -1],
+  [0, 1],
+];
+
+let maxPath = 0;
+
+const dfs = (x, y, pathLength) => {
+  maxPath = Math.max(maxPath, pathLength);
+  let charIdx = alphabet[x][y].charCodeAt(0) - 65;
+  visited[charIdx] = true;
+
+  for (let i = 0; i < 4; i++) {
+    const [nx, ny] = [x + dir[i][0], y + dir[i][1]];
+
+    if (nx >= 0 && ny >= 0 && nx < r && ny < c) {
+      let nextCharIdx = alphabet[nx][ny].charCodeAt(0) - 65;
+      if (!visited[nextCharIdx]) {
+        visited[nextCharIdx] = true;
+        dfs(nx, ny, pathLength + 1);
+        visited[nextCharIdx] = false;
+      }
+    }
+  }
+};
+
+dfs(0, 0, 1);
+//밟는 칸부터 갯수 세야하므로 경로 길이 1로 시작
+console.log(maxPath);
