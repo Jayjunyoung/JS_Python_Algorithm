@@ -1,11 +1,7 @@
 function possibleFun(board, row) {
   //전부터 같은 라인 혹은 대각선에 있는지 체크
-  for (var i = 1; i < row; i++) {
-    // 같은 라인에 있는지 체크
-    if (board[i] === board[row]) {
-      return false;
-    }
-    // 같은 대각선에 있는지 체크
+  for (let i = 1; i < row; i++) {
+    if (board[i] === board[row]) return false;
     if (Math.abs(board[i] - board[row]) === Math.abs(i - row)) {
       return false;
     }
@@ -15,15 +11,15 @@ function possibleFun(board, row) {
 
 function solution(n) {
   let answer = 0;
+
   const dfs = (board, row) => {
     if (row === n) {
       answer++;
     } else {
       for (let i = 1; i <= n; i++) {
         board[row + 1] = i;
-        if (possibleFun(board, row + 1)) {
-          dfs(board, row + 1);
-        }
+        if (!possibleFun(board, row + 1)) continue;
+        dfs(board, row + 1);
       }
     }
   };

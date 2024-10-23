@@ -26,7 +26,6 @@ const dfs = (num, cnt) => {
 
   for (let i = 0; i < n; i++) {
     if (visited[i]) continue;
-
     visited[i] = true;
     dfs(num + arr[i], cnt + 1);
     visited[i] = false;
@@ -34,5 +33,4 @@ const dfs = (num, cnt) => {
 };
 
 dfs("", 0);
-
 console.log(answer.size);

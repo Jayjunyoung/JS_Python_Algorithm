@@ -11,7 +11,6 @@ function solution(begin, target, words) {
     let [v, cnt] = queue.shift();
 
     if (v === target) {
-      //꺼낸값의 v가 맞으면 cnt는 횟수 이므로 cnt를 return한다.
       return cnt;
     }
 

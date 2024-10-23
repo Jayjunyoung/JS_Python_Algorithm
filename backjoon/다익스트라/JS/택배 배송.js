@@ -11,6 +11,7 @@ let dist = Array.from({ length: n + 1 }, () => Infinity);
 let visited = Array.from({ length: n + 1 }, () => false);
 
 const startNode = 1;
+//1부터 시작
 
 for (let [a, b, c] of edges) {
   graph[a].push([b, c]);
@@ -24,7 +25,7 @@ const dijkstra = (startNode) => {
 
   while (queue.length > 0) {
     let minIndex = -1;
-    //현재 큐에 남아있는 노드 중에서 짧은 거리를 담기위한 변수
+
     let minDist = Infinity;
 
     for (let i = 0; i < queue.length; i++) {
@@ -42,7 +43,6 @@ const dijkstra = (startNode) => {
 
     for (let [nextNode, weight] of graph[currentNode]) {
       const newDist = currentDist + weight;
-
       if (newDist < dist[nextNode]) {
         dist[nextNode] = newDist;
         queue.push([newDist, nextNode]);

@@ -17,11 +17,14 @@ let result = 0;
 
 while (array.length > 1) {
   const sum = array[0] + array[array.length - 1];
+
   if (sum === m) {
     result++;
-    array.shift();
     array.pop();
-  } else sum >= m ? array.pop() : array.shift();
+    array.shift();
+  } else {
+    sum >= m ? array.pop() : array.shift();
+  }
 }
 
 console.log(result);

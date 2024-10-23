@@ -34,13 +34,13 @@ function solution(friends, gifts) {
       if (fromName !== toName) {
         let [give, receive] = giftData;
         if (give > receive) {
-          tempAnswer += 1;
+          tempAnswer++;
         } else if (give === receive) {
           if (
             dstData.get(fromName).get(fromName) >
             dstData.get(toName).get(toName)
           ) {
-            tempAnswer += 1;
+            tempAnswer++;
           }
         }
       }

@@ -3,18 +3,16 @@ function solution(begin, target, words) {
   const queue = [begin];
 
   while (queue.length) {
-    const cur = queue.shift();
+    const current = queue.shift();
 
-    if (cur === target) break;
+    if (current === target) break;
 
     for (const word of words) {
-      if (isConnected(word, cur) && !visited[word]) {
-        visited[word] = visited[cur] + 1;
-        queue.push(word);
-      }
+      if (isConnected(word, current) && !visited[word]) queue.push(word);
+      visited[word] = visited[cur] + 1;
+      queue.push(word);
     }
   }
-  return visited[target] ? visited[target] : 0;
 }
 
 const isConnected = (str1, str2) => {

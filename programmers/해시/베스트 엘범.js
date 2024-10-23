@@ -3,11 +3,13 @@ function solution(genres, plays) {
 
   // 1번 과정
   let playCntByGenre = {};
+
   for (let i = 0; i < genres.length; i++) {
     playCntByGenre[genres[i]] = playCntByGenre[genres[i]]
       ? playCntByGenre[genres[i]] + plays[i]
       : plays[i];
   }
+
   // 여기서 playCntByGenre는 {classic:1450,pop:3100} 형태
 
   // 재생횟수로 내림차순 정렬하기 위해, [키,밸류]의 배열 형태로 만들어준다
@@ -25,13 +27,14 @@ function solution(genres, plays) {
   }));
 
   // 3번 과정
-  keyValueArr.forEach((k, i) => {
+  keyValueArr.forEach((val, i) => {
     let current = [];
     for (let j = 0; j < allInfoObj.length; j++) {
-      if (k[0] === allInfoObj[j].genre) {
+      if (val[0] === allInfoObj[j].genre) {
         current.push(allInfoObj[j]);
       }
     }
+
     current.sort((a, b) => b.playCnt - a.playCnt);
     current.forEach((a, i) => {
       if (i < 2) {

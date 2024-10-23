@@ -27,11 +27,8 @@ for (let i = 0; i < k; i++) {
   const arr = rect[i];
   const [x1, y1, x2, y2] = arr;
 
-  // 좌표 변환: y 좌표를 맨 아래에서 위로 변환
-
-  const ny1 = m - y2; // y1 좌표 변환
-
-  const ny2 = m - y1; // y2 좌표 변환
+  const ny1 = m - y2;
+  const ny2 = m - y1;
 
   for (let j = x1; j < x2; j++) {
     for (let k = ny1; k < ny2; k++) {
@@ -65,7 +62,7 @@ const dfs = (x, y) => {
 for (let i = 0; i < m; i++) {
   for (let j = 0; j < n; j++) {
     if (map[i][j] === 0 && !visited[i][j]) {
-      cnt = 0; //영역의 첫 시작은 0부터 시작. 이후 방문가능한 영역이면 dfs내부에서 증가
+      cnt = 0;
       dfs(i, j);
       area.push(cnt);
     }

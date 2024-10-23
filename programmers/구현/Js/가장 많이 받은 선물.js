@@ -23,6 +23,7 @@ function solution(friends, gifts) {
     dstData[from][to][0] += 1;
     dstData[to][from][1] += 1;
   });
+
   // 각 친구별로 최댓값 계산
   Object.entries(dstData).forEach(([fromName, giftDatas]) => {
     let tempAnswer = 0;
@@ -30,11 +31,10 @@ function solution(friends, gifts) {
       if (fromName !== toName) {
         let [give, receive] = giftData;
         if (give > receive) {
-          tempAnswer += 1;
+          tempAnswer++;
         } else if (give === receive) {
-          //이때는 선물 지수를 비교하는거지
           if (dstData[fromName][fromName] > dstData[toName][toName]) {
-            tempAnswer += 1;
+            tempAnswer++;
           }
         }
       }

@@ -30,7 +30,6 @@ for (let i = 0; i < t; i++) {
         max = mid - 1;
       }
     }
-
     cnt += min;
   });
 

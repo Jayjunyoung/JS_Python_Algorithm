@@ -33,21 +33,21 @@ function solution(rectangle, characterX, characterY, itemX, itemY) {
 
   while (queue.length) {
     //이동거리를 queue의 한 요소로 설정
+    //queue.shift(), 방문처리, 탈출 조건문
+
     let [x, y, cnt] = queue.shift();
 
     if (x === itemX && y === itemY) {
       return cnt / 2;
-      //2배로 키웠으므로 리턴
     }
 
     for (let [dx, dy] of direction) {
-      const nx = x + dx;
-      const ny = y + dy;
+      const nx = dx + x;
+      const ny = dy + y;
 
       if (range[nx][ny] === 1) {
         queue.push([nx, ny, cnt + 1]);
         range[nx][ny] = 0;
-        //방문처리를 의미
       }
     }
   }

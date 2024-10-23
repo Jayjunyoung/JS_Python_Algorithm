@@ -6,7 +6,6 @@ const input = require("fs")
 
 const [h, w] = input.shift().split(" ").map(Number);
 const row = input[0].split(" ").map(Number);
-let count = 0;
 
 //w만큼 배열 만들기
 let leftMax = Array(w).fill(0);
@@ -18,6 +17,7 @@ for (let i = 1; i < w; i++) {
 }
 
 rightMax[w - 1] = row[w - 1];
+
 for (let i = w - 2; i >= 0; i--) {
   rightMax[i] = Math.max(rightMax[i + 1], row[i]);
 }

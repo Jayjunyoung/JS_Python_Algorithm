@@ -7,8 +7,8 @@ const input = require("fs")
 const numbers = input
   .shift()
   .split("-")
-  .map((val) =>
-    val
+  .map((v) =>
+    v
       .split("+")
       .map(Number)
       .reduce((a, b) => a + b, 0)

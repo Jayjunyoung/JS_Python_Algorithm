@@ -21,7 +21,7 @@ function solution(N, road, K) {
       if (distance[current] < currentTime) continue;
 
       for (let [neighbor, time] of graph[current]) {
-        const nextTime = currentTime + time;
+        let nextTime = currentTime + time;
 
         if (nextTime < distance[neighbor]) {
           distance[neighbor] = nextTime;
@@ -29,7 +29,7 @@ function solution(N, road, K) {
         }
       }
 
-      pq.sort((a, b) => b[1] - a[1]); // Min-Heap을 위한 정렬
+      pq.sort((a, b) => b[1] - a[1]);
     }
   };
 

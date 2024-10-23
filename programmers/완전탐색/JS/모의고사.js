@@ -9,15 +9,17 @@ function solution(answers) {
   let result = [];
 
   for (let i = 0; i < answers.length; i++) {
-    if (person1[i % length1] === answers[i]) cntArray[0]++; //1번이 맞춘 경우
-    if (person2[i % length2] === answers[i]) cntArray[1]++; //2번이 맞춘 경우
-    if (person3[i % length3] === answers[i]) cntArray[2]++; //3번이 맞춘 경우
+    if (person1[i % length1] === answers[i]) cntArray[0]++;
+
+    if (person2[i % length2] === answers[i]) cntArray[1]++;
+
+    if (person3[i % length3] === answers[i]) cntArray[2]++;
   }
 
   let maxValue = Math.max(...cntArray);
 
-  cntArray.forEach((value, idx) => {
-    if (value === maxValue) {
+  cntArray.forEach((v, idx) => {
+    if (v === maxValue) {
       result.push(idx + 1);
     }
   });

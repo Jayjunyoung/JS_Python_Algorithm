@@ -25,7 +25,7 @@ const dir = [
 while (1) {
   if (!visited[x][y]) {
     visited[x][y] = true;
-    room[x][y] = 2; //로봇청소지역
+    room[x][y] = 2;
     ans++;
   }
 
@@ -54,7 +54,6 @@ while (1) {
     cnt++;
 
     const [backX, backY] = [x - dir[d][0], y - dir[d][1]];
-
     if (room[backX][backY] === 1) break;
 
     x = backX;

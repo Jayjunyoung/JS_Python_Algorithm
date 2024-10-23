@@ -10,6 +10,7 @@ let answer = 0;
 const times = input
   .map((v) => v.split(" ").map(Number))
   .sort((a, b) => {
+    //종료시간이 같으면 시작시간 으로 오름차순
     if (a[1] === b[1]) return a[0] - b[0];
     else return a[1] - b[1];
   });
@@ -19,7 +20,6 @@ let et = 0;
 times.forEach((t, i) => {
   if (t[0] >= et) {
     answer++;
-
     et = t[1];
   }
 });

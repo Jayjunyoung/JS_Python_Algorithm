@@ -38,15 +38,15 @@ const getMinDistance = () => {
   return sum;
 };
 
+//DFS 함수 구현
 const DFS = (idx, cnt) => {
   if (cnt === m) {
     answer = Math.min(answer, getMinDistance());
-    return;
   } else {
     for (let i = idx; i < chicken.length; i++) {
-      if (visited[i] === true) continue;
+      if (visited[i]) continue;
       visited[i] = true;
-      DFS(i, cnt + 1);
+      DFS(i + 1, cnt + 1);
       visited[i] = false;
     }
   }

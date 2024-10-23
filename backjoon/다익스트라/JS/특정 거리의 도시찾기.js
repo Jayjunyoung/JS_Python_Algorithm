@@ -19,8 +19,7 @@ for (let [a, b] of edges) {
 }
 
 const dijkstra = (startNode) => {
-  const queue = [startNode]; //[시작노드]
-
+  const queue = [startNode];
   dist[startNode] = 0;
 
   while (queue.length) {
@@ -28,6 +27,7 @@ const dijkstra = (startNode) => {
     if (visited[currentNode]) continue;
     visited[currentNode] = true;
 
+    //거리 k도달 했을때 따져야돼
     if (dist[currentNode] === k) {
       answer.push(currentNode);
       continue;

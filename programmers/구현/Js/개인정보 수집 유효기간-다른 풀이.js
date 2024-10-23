@@ -8,18 +8,18 @@ function solution(today, terms, privacies) {
     const [contract, month] = term.split(" ");
     termsObj[contract] = Number(month);
   });
-  let ans = [];
 
+  let ans = [];
   privacies.forEach((privacy, idx) => {
     let [date, contract] = privacy.split(" ");
     date = date.split(".").map(Number);
 
     const newDate =
       date[0] * 12 * 28 + date[1] * 28 + date[2] + termsObj[contract] * 28;
-
     if (newDate <= todayDate) {
-      ans.push(idx + 1);
+      ans.purh(idx + 1);
     }
   });
+
   return ans;
 }

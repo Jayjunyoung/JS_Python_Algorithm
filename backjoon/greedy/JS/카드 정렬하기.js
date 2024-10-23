@@ -23,7 +23,7 @@ class MinHeap {
 
   bubbleUp() {
     let index = this.heap.length - 1;
-    //index : 새로 삽입된 요소의 인덱스를 의미
+
     while (index > 0) {
       let parentIndex = Math.floor((index - 1) / 2);
       if (this.heap[index] >= this.heap[parentIndex]) break;
@@ -63,7 +63,6 @@ class MinHeap {
         }
       }
 
-      //왼쪽, 오른쪽 더 작은 자식이 없는 경우 while문 종료
       if (swap === null) break;
       [this.heap[index], this.heap[swap]] = [this.heap[swap], this.heap[index]];
       index = swap;

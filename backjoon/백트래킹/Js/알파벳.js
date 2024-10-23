@@ -7,6 +7,7 @@ const input = require("fs")
 const [r, c] = input.shift().split(" ").map(Number);
 
 const alphabet = input.map((v) => v.split(""));
+//알파벳 26개이므로 방문처리 배열 생성
 let visited = new Array(26).fill(false);
 
 const dir = [
@@ -25,13 +26,12 @@ const dfs = (x, y, pathLength) => {
 
   for (let i = 0; i < 4; i++) {
     const [nx, ny] = [x + dir[i][0], y + dir[i][1]];
-
     if (nx >= 0 && ny >= 0 && nx < r && ny < c) {
-      let nextCharIdx = alphabet[nx][ny].charCodeAt(0) - 65;
-      if (!visited[nextCharIdx]) {
-        visited[nextCharIdx] = true;
+      let newCharIdx = alphabet[nx][ny].charCodeAt(0) - 65;
+      if (!visited[newCharIdx]) {
+        visited[newCharIdx] = true;
         dfs(nx, ny, pathLength + 1);
-        visited[nextCharIdx] = false;
+        visited[newCharIdx] = false;
       }
     }
   }

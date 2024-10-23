@@ -11,7 +11,6 @@ let answer = 0; //동전갯수 구하기 위해 설정
 for (let i = 0; i < coins.length; i++) {
   if (k < coins[i]) continue;
   else {
-    //js는 내림차순 해줘야해
     answer += Math.floor(k / coins[i]);
     k %= coins[i];
   }
