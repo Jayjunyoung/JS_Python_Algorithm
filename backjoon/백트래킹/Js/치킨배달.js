@@ -22,19 +22,21 @@ for (let i = 0; i < n; i++) {
 }
 
 //집과 치킨집 사이 최소거리 구하는 함수
-
+//getMinDistance 함수
 const getMinDistance = () => {
   let sum = 0;
   house.forEach(([hx, hy]) => {
     let min = Infinity;
-    chicken.forEach((_, index) => {
-      if (visited[index] === true) {
-        const [cx, cy] = chicken[index];
+    chicken.forEach((_, idx) => {
+      if (visited[idx] === true) {
+        const [cx, cy] = chicken[idx];
+
         min = Math.min(min, Math.abs(hx - cx) + Math.abs(hy - cy));
       }
     });
     sum += min;
   });
+
   return sum;
 };
 
@@ -44,7 +46,6 @@ const DFS = (idx, cnt) => {
     answer = Math.min(answer, getMinDistance());
   } else {
     for (let i = idx; i < chicken.length; i++) {
-      if (visited[i]) continue;
       visited[i] = true;
       DFS(i + 1, cnt + 1);
       visited[i] = false;

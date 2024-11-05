@@ -10,15 +10,16 @@ function solution(gems) {
 
   while (r < gems.length) {
     if (gemsMap.size === cnt) {
+      //길이가 짧으므로 갱신해주기
       if (ans[1] - ans[0] > r - l) {
         ans = [l + 1, r + 1];
       }
 
       gemsMap.set(gems[l], gemsMap.get(gems[l]) - 1);
+
       if (gemsMap.get(gems[l]) === 0) {
         gemsMap.delete(gems[l]);
       }
-
       l++;
     } else {
       r++;

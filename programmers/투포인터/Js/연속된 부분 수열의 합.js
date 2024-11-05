@@ -3,12 +3,13 @@ function solution(sequence, k) {
   let j = 0;
   let sum = 0;
   let sequenceLength = sequence.length;
-  let answer = null;
+  //기존 배열 범위를 0부터 4까지로 설정
+  //만약 sequenceLength가 5인 경우
+  let answer = [i, sequenceLength - 1];
 
   while (j < sequenceLength) {
     sum += sequence[j];
 
-    //여기 수정해보자 -> while문 으로
     while (sum > k && i < j) {
       sum -= sequence[i];
       i++;

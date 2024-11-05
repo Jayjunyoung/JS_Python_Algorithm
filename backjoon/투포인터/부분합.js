@@ -12,6 +12,7 @@ let sum = 0;
 let i = 0;
 let j = 0;
 
+//이 부분이 핵심
 while (j < n) {
   sum += arr[j];
 

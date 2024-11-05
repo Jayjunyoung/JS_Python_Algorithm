@@ -19,7 +19,6 @@ const dfs = (alphabet, startIndex) => {
     if (cnt > 0 && L - cnt > 1) {
       answer.push(alphabet);
     }
-    return;
   } else {
     for (let i = startIndex; i < C; i++) {
       dfs(alphabet + alphabets[i], i + 1);

@@ -5,17 +5,12 @@ const input = require("fs")
   .split("\n");
 
 const [n, m] = input.shift().split(" ").map(Number);
-let array = input[0]
-  .split(" ")
-  .map(Number)
-  .sort((a, b) => a - b);
 let result = "";
 
 function solution(n, m) {
   let seq = Array(m).fill(0);
-  let visited = Array(n).fill(false);
 
-  const dfs = (k, start) => {
+  const dfs = (k) => {
     if (k === m) {
       const arr = [];
       for (let i = 0; i < m; i++) {
@@ -25,16 +20,13 @@ function solution(n, m) {
       return (result += `${arr.join(" ")}\n`);
     }
 
-    for (let i = 0; i < array.length; i++) {
-      if (visited[i]) continue;
-      seq[k] = array[i];
-      visited[i] = true;
-      dfs(k + 1, array[i + 1]);
-      visited[i] = false;
+    for (let i = 1; i <= n; i++) {
+      seq[k] = i;
+      dfs(k + 1);
     }
   };
 
-  dfs(0, array[0]);
+  dfs(0);
   return result;
 }
 

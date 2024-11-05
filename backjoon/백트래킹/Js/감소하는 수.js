@@ -13,6 +13,7 @@ const dfs = (num, depth) => {
   answer.push(num);
 
   for (let i = 0; i < num % 10; i++) {
+    //num이 175라고 가정
     dfs(num * 10 + i, depth + 1);
   }
 };
@@ -25,6 +26,7 @@ for (let i = 0; i <= 9; i++) {
 // N이 감소하는 수의 개수보다 크면 -1 출력
 answer.sort((a, b) => a - b);
 
+//시작 인덱스가 0부터니까 마지막 인덱스는 19일거야
 if (n >= answer.length) {
   console.log(-1);
 } else {

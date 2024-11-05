@@ -33,6 +33,7 @@ let curDir = 0; //초기 방향은 오른쪽 임
 let head = [0, 0];
 let tail = [0, 0];
 let dirChangeTime = record[0][0];
+//초기 record[0][0]
 const path = []; // 뱀의 이동 경로
 
 while (true) {
@@ -53,13 +54,17 @@ while (true) {
       head[0] = nx;
       head[1] = ny;
       map[nx][ny] = 1;
+      //빈칸이 뱀의 머리로 채워짐
       path.push([nx, ny]);
+      //꼬리가 위치한 칸 비워주기
       map[tail[0]][tail[1]] = 0;
       let next = path.shift();
+      //이동경로에서 새로운 경로 가져오기
       tail[0] = next[0];
       tail[1] = next[1];
     }
   }
+
   time++;
 
   if (time === dirChangeTime) {
@@ -69,7 +74,7 @@ while (true) {
       if (curDir - 1 < 0) curDir = 3;
       else curDir = (curDir - 1) % 4;
     }
-    //뱀의 방향을 바꿨으므로 해당 정보를 기록에서 삭제
+
     record.shift();
     if (record.length === 0) dirChangeTime = 0;
     else dirChangeTime = record[0][0];

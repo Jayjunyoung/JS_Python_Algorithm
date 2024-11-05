@@ -32,6 +32,7 @@ for (let i = 0; i < arr.length; i += 2) {
     if (location === 0) {
       location = priorities.length - 1;
     } else {
+      //목표 문서는 한 칸씩 앞으로 옮기므로 -- 해줌
       location--;
     }
   }

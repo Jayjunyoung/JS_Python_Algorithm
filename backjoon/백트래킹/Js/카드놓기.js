@@ -8,12 +8,14 @@ const input = require("fs")
 const n = +input.shift();
 const k = +input.shift();
 const inputLine = input.map(Number);
+
 let arr = [];
 
 for (let i = 0; i < n; i++) {
   arr.push(inputLine[i]);
 }
 
+//set 자료구조 만든다
 let answer = new Set();
 
 let visited = Array.from({ length: n }, () => false);

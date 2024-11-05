@@ -5,9 +5,6 @@ const input = require("fs")
   .split("\n");
 
 const n = +input.shift();
-const seq = Array(n).fill(0);
-const visited = Array.from({ length: n }, () => false);
-let ans = [];
 
 //소수 판별 함수
 const isPrime = (num) => {

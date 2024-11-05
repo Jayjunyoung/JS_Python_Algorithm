@@ -25,6 +25,7 @@ for (let i = 0; i < t; i++) {
       if (c.length > arr.length) return (arr = "error");
 
       revFlag ? (endIdx -= c.length) : (startIndex += c.length);
+
       if (startIndex > endIdx) arr = "error";
     }
   });

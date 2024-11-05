@@ -8,7 +8,7 @@ const [r, c] = input.shift().split(" ").map(Number);
 
 const alphabet = input.map((v) => v.split(""));
 //알파벳 26개이므로 방문처리 배열 생성
-let visited = new Array(26).fill(false);
+let visited = Array(26).fill(false);
 
 const dir = [
   [-1, 0],
