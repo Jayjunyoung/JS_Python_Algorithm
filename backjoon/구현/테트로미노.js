@@ -41,7 +41,7 @@ const dfs = (x, y, count, sum) => {
     if (nx >= 0 && nx < n && ny >= 0 && ny < m && !visited[nx][ny]) {
       if (count === 2) {
         visited[nx][ny] = true;
-        dfs(x, y, count + 1, paper[nx][ny]);
+        dfs(x, y, count + 1, sum + paper[nx][ny]);
         visited[nx][ny] = false;
       }
 
