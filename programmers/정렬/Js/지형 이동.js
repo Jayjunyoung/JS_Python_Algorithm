@@ -31,7 +31,7 @@ class MinHeap {
   bubbleUp() {
     let index = this.size() - 1;
     while (index > 0) {
-      const parentIndex = Math.floor((index - 1) / 2);
+      let parentIndex = Math.floor((index - 1) / 2);
       if (this.items[parentIndex][0] <= this.items[index][0]) {
         break;
       }

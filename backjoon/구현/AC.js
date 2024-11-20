@@ -8,6 +8,7 @@ const t = +input.shift();
 let answer = [];
 
 for (let i = 0; i < t; i++) {
+  //테스트케이스 들을 그룹화
   const func = input[i * 3].match(/(.)\1*/g);
   const n = +input[i * 3 + 1];
   let arr = JSON.parse(input[i * 3 + 2]);
@@ -20,12 +21,16 @@ for (let i = 0; i < t; i++) {
     if (arr === "error") return;
 
     if (c[0] === "R") {
+      //뒤집기 플래그를 토글
+      //나머지가 1이면 홀수라는 소리네
       if (c.length % 2) revFlag = !revFlag;
     } else {
+      //D 명령
       if (c.length > arr.length) return (arr = "error");
 
       revFlag ? (endIdx -= c.length) : (startIndex += c.length);
 
+      //인덱스 엇갈리면 에러 처리
       if (startIndex > endIdx) arr = "error";
     }
   });

@@ -27,3 +27,5 @@ for (let i = 1; i < n; i++) {
     }
   }
 }
+
+console.log(Math.max(...pyramid[n - 1]));

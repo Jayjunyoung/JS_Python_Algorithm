@@ -26,7 +26,9 @@ const dfs = (x, y, pathLength) => {
 
   for (let i = 0; i < 4; i++) {
     const [nx, ny] = [x + dir[i][0], y + dir[i][1]];
-    if (nx >= 0 && ny >= 0 && nx < r && ny < c) {
+    if (nx >= 0 && nx < r && ny >= 0 && ny < c) {
+      //새로운 인덱스를 구하지않았음
+      //11.15일자 복습
       let newCharIdx = alphabet[nx][ny].charCodeAt(0) - 65;
       if (!visited[newCharIdx]) {
         visited[newCharIdx] = true;

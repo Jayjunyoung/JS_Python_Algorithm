@@ -30,6 +30,7 @@ const dfs = (num, cnt) => {
 
   for (let i = 0; i < adjArr[num].length; i++) {
     const next = adjArr[num][i];
+
     if (!check[next]) {
       dfs(next, cnt + 1);
     }

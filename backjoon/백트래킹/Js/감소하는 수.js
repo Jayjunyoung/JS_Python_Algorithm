@@ -13,7 +13,6 @@ const dfs = (num, depth) => {
   answer.push(num);
 
   for (let i = 0; i < num % 10; i++) {
-    //num이 175라고 가정
     dfs(num * 10 + i, depth + 1);
   }
 };

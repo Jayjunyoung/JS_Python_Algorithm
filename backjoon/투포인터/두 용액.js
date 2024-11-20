@@ -24,7 +24,6 @@ let answer = [];
 //초기 값 : 빈 배열
 
 //while문에서 막힘
-
 while (i < j) {
   let sum = array[i] + array[j];
 

@@ -34,13 +34,14 @@ const bfs = (arr) => {
     for (let [dx, dy] of dir) {
       const [nx, ny] = [curX + dx, curY + dy];
       if (nx >= 0 && nx < n && ny >= 0 && ny < m && arr[nx][ny] === 0) {
+        //0인 곳을 찾아 바이러스에 감염 시키기
         arr[nx][ny] = 2;
         queue.push([nx, ny]);
       }
     }
   }
 
-  //안전영역 세는 부분
+  //바이러스에 감염 된 영역을 제외 + 안전영역 세는 부분
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < m; j++) {
       if (arr[i][j] === 0) {
@@ -55,8 +56,10 @@ const bfs = (arr) => {
 const dfs = (cnt) => {
   //벽을 사용하는 건 백트래킹 사용
   if (cnt === 3) {
+    //board의 각 행에 대하여 얕은복사 실시
+    //새로운 배열을 생성하여 수정 가능한 복사본을 만들어야 하는 상황
     let arr = board.map((v) => [...v]);
-    let cntOfSafe = bfs(arr);
+    const cntOfSafe = bfs(arr);
 
     ans = Math.max(ans, cntOfSafe);
     return;

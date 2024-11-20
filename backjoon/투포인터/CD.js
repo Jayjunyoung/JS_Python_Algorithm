@@ -14,7 +14,6 @@ while (true) {
 
   if (n === 0 && m === 0) break;
 
-  //CD 번호는 오름차순으로 주어지므로 정렬 안해도 됌
   const CDsA = input.slice(index + 1, index + 1 + n).map(Number);
   const CDsB = input.slice(index + 1 + n, index + 1 + n + m).map(Number);
 

@@ -3,7 +3,7 @@ function solution(triangle) {
 
   let dp = triangle[triangle.length - 1].slice();
   //triangle 배열 마지막 요소를 복사하기 위해 slice 사용
-  //bottom - top 방식
+  //bottom - up 방식
 
   for (let i = triangle.length - 2; i >= 0; i--) {
     for (let j = 0; j <= i; j++) {

@@ -1,10 +1,11 @@
 function solution(N, number) {
   let answer = 0;
+
   let use = Array.from({ length: 9 }, () => new Set());
   if (N === number) return 1;
   else {
-    use.forEach((element, index) => {
-      if (index !== 0) element.add(Number(String(N).repeat(index)));
+    use.forEach((element, idx) => {
+      if (idx !== 0) element.add(Number(String(N).repeat(idx)));
     });
 
     for (let i = 1; i <= 8; i++) {
@@ -18,11 +19,8 @@ function solution(N, number) {
           }
         }
       }
-
       if (use[i].has(number)) return i;
     }
-    return -1;
   }
-
-  return answer;
+  return -1;
 }

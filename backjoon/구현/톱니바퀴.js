@@ -18,9 +18,8 @@ let c = 0;
 let d = 0;
 
 function rotate(t, r) {
-  // r이 1이면 시계방향으로 회전이니까  각 톱니의 12시 방향 인덱스에서 -1 해줘야함.
-  // 예) 0인 상태에서 시계방향으로 돌면 7 그니까 -1 해줘야함.
   t += -r;
+
   if (t === 8) {
     t = 0;
   } else if (t === -1) {
@@ -38,7 +37,6 @@ input
     const BC = B[(b + 2) % 8] != C[(c + 6) % 8];
     const CD = C[(c + 2) % 8] != D[(d + 6) % 8];
 
-    //switch부분에서 cas2 2:, case 3: 부분을 다시 타이핑 해보자
     switch (t) {
       case 1:
         a = rotate(a, r);
@@ -52,20 +50,20 @@ input
           }
         }
         break;
+
       case 2:
         b = rotate(b, r);
         if (AB) {
           a = rotate(a, -r);
         }
-
         if (BC) {
           c = rotate(c, -r);
           if (CD) {
             d = rotate(d, r);
           }
         }
-
         break;
+
       case 3:
         c = rotate(c, r);
         if (CD) {

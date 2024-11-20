@@ -13,14 +13,13 @@ function solution(n, k) {
 
   while (k > length + digit * count) {
     length += digit * count;
-    digit++; //다음 자릿수로 이동
+    digit++;
     count *= 10;
   }
 
   const offset = k - length - 1;
   const number = Math.floor(offset / digit) + Math.pow(10, digit - 1);
   const index = offset % digit;
-  //number에서 몇 번째 자릿수 인지를 계산
 
   if (number > n) {
     return -1;
