@@ -82,6 +82,7 @@ function solution(land, height) {
   while (q.size() > 0) {
     //우선순위 큐와 bfs 탐색을 이용
     const [cost, i, j] = q.pop();
+    //이게 만약 최대힙이었다면 최대비용인 거 부터 나옴
 
     //방문 안한거 탐색
     if (!visited[i][j]) {
@@ -94,6 +95,9 @@ function solution(land, height) {
         const nj = dj + j;
 
         if (ni >= 0 && ni < n && nj >= 0 && nj < n) {
+          //visited 배열에다 true 설정 안하는 이유
+          //방문 처리는 큐에서 간선을 꺼내어 실제로 이동할 때 이루어짐
+
           const tempCost = Math.abs(land[i][j] - land[ni][nj]);
           const newCost = tempCost > height ? tempCost : 0;
 

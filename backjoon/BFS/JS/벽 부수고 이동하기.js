@@ -45,9 +45,7 @@ function BFS() {
         ) {
           visited[nextRow][nextCol][isBreak] = visited[row][col][isBreak] + 1;
           queue.push([nextRow, nextCol, isBreak]);
-        }
-        // 벽(1)이고 벽을 부술 수 있는 경우
-        else if (input[nextRow][nextCol] === 1 && isBreak === 0) {
+        } else if (input[nextRow][nextCol] === 1 && isBreak === 0) {
           visited[nextRow][nextCol][isBreak + 1] =
             visited[row][col][isBreak] + 1;
           queue.push([nextRow, nextCol, isBreak + 1]);
