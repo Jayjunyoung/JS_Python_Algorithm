@@ -13,7 +13,7 @@ function solution(people, limit) {
     }
     // 무거운 사람은 항상 보트에 태움
     r--;
-    count++; // 보트 하나 추가
+    count++;
   }
 
   return count;

@@ -19,6 +19,7 @@ function solution(N, number) {
           }
         }
       }
+
       if (use[i].has(number)) return i;
     }
   }

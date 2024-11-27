@@ -37,13 +37,18 @@ function solution(msg) {
     if (dir[nextWord] === undefined) {
       dir[nextWord] = lastCount++;
     } else {
+      //ka를 반환하여 더 긴 시퀀스 탐색
       return acc + cur;
     }
 
+    //ka중에서 k의 코드 11을 answer에 push
     if (dir[acc] !== undefined) answer.push(dir[acc]);
+
+    //'a'부터 새로운 시퀀스 시작
     return cur;
   });
 
+  //kakao의 o를 의미하므로 15가 push 됌
   answer.push(dir[s]);
 
   return answer;
