@@ -19,6 +19,7 @@ function solution(s) {
   for (let char of s) {
     // 숫자인 경우 바로 추가
     if (!isNaN(char)) {
+      //숫자가 아닌 경우의 true반환
       answer += char;
     } else {
       // 영단어일 가능성이 있는 경우

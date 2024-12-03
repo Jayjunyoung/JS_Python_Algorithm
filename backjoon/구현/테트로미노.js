@@ -30,6 +30,7 @@ const visited = Array.from({ length: n }, () => Array(m).fill(false));
 let maxSum = 0;
 
 const dfs = (x, y, count, sum) => {
+  //한번 여기서 걸러주는거야
   if (sum + (4 - count) * maxValue <= maxSum) return;
 
   if (count === 4) {

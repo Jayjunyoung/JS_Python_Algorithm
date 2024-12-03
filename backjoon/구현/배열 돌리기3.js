@@ -50,6 +50,7 @@ function four(arr) {
 function five(arr) {
   const n = arr.length;
   const m = arr[0].length;
+  //N의 절반, M의 절반을 구한다
   const halfN = Math.floor(n / 2);
   const halfM = Math.floor(m / 2);
   const result = Array.from(Array(n), () => Array(m));
@@ -90,7 +91,7 @@ function six(arr) {
   const halfM = Math.floor(m / 2);
   //각 배열의 요소 값은 undefined임
   //만약 n이 3, m이 4라면
-  //2차원 배열에 각각 행이 undefined이고 4개씩 존재
+  //2차원 배열에 각각 행이 undefined이고(fill을 통해 값을 안 넣었기 때문) 4개씩 존재
   const result = Array.from(Array(n), () => Array(m));
 
   // 1 -> 4
