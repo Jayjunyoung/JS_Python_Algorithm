@@ -48,7 +48,7 @@ const dir = [
 ];
 
 const monitor = (tempMap, x, y, d) => {
-  let [dx, dy] = dir[d];
+  let [dx, dy] = dir[d]; //d에 0~3이 전부 들어가므로 상,하,좌,우 다 검사하는 5번 임을 알 수 있다.
   while (true) {
     x += dx;
     y += dy;
