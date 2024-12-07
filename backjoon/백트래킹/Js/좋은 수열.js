@@ -31,7 +31,7 @@ function check(temp, length) {
     const sub2 = temp.slice(length - i, length).join(""); //sub2 = 1
 
     if (sub1 === sub2) {
-      return false; //false이므로 temp[1] = 2(i는 이때 2)로 설정
+      return false; //false이므로 temp[1] = 2(반복문에서 i가 1일때는 넘어가고 i는 2로 변경)
     }
   }
   return true;
