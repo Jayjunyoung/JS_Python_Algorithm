@@ -39,7 +39,7 @@ const checkMap = (arr) => {
       let nx = cx;
       let ny = cy;
       while (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-        if (arr[nx][ny] === "O") break;
+        if (arr[nx][ny] === "O") break; //while문 빠져나가고 상위 for문에서 새로운 방향 좌표 설정
 
         if (arr[nx][ny] === "S") return false;
 
