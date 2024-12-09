@@ -8,15 +8,16 @@ const n = +input.shift();
 
 let temp = Array.from({ length: n }, () => 0);
 
+//다시 풀어보자
+
 const dfs = (L) => {
   if (L === n) {
     console.log(temp.join(""));
-    process.exit();
+    process.exit(); //작은 값 나오자마자 종료시켜버리기
   } else {
     for (let i = 1; i <= 3; i++) {
       temp[L] = i;
       if (check(temp, L + 1)) {
-        //첨에 L+1은 1이므로 곧 바로 check 함수는 true 반환
         dfs(L + 1);
       }
     }
@@ -27,12 +28,11 @@ dfs(0);
 
 function check(temp, length) {
   for (let i = 1; i <= Math.floor(length / 2); i++) {
-    const sub1 = temp.slice(length - i * 2, length - i).join(""); //sub1 = 1
-    const sub2 = temp.slice(length - i, length).join(""); //sub2 = 1
+    const sub1 = temp.slice(length - i * 2, length - i).join("");
+    const sub2 = temp.slice(length - i, length).join("");
 
-    if (sub1 === sub2) {
-      return false; //false이므로 temp[1] = 2(반복문에서 i가 1일때는 넘어가고 i는 2로 변경)
-    }
+    if (sub1 === sub2) return false;
   }
+
   return true;
 }
