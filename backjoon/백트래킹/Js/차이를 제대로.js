@@ -6,9 +6,9 @@ const input = require("fs")
 
 const n = +input.shift(); //배열 갯수
 const arr = input[0].split(" ").map(Number);
-let maxResult = 0; // 최댓값 저장 변수
-const visited = new Array(n).fill(false); // 방문 여부
-const currentPermutation = []; // 현재 순열 저장
+let maxResult = 0;
+const currentPermutation = [];
+let visited = new Array(n).fill(false);
 
 const dfs = (depth) => {
   if (depth === n) {

@@ -23,21 +23,19 @@ const dir = [
 ];
 
 const dfs = (row, col, depth) => {
-  if (depth === k) {
-    if (row === 0 && col === c - 1) {
-      cnt++;
-    }
+  if (depth === k && row === 0 && col === c - 1) {
+    cnt++;
     return;
   } else {
     for (let [dx, dy] of dir) {
-      const nCol = col + dx;
-      const nRow = row + dy;
+      let nCol = col + dx;
+      let nRow = row + dy;
 
       if (
-        nRow >= 0 &&
         nCol >= 0 &&
-        nRow < r &&
         nCol < c &&
+        nRow >= 0 &&
+        nRow < r &&
         graph[nRow][nCol] !== "T"
       ) {
         if (!visited[nRow][nCol]) {

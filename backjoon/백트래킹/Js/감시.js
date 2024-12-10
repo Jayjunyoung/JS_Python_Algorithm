@@ -10,6 +10,7 @@ let map = input.map((row) => row.split(" ").map(Number));
 const cctv = [];
 let minBlindSpot = Infinity;
 
+//map을 순회하면서 cctv의 위치와 어떤 cctv인지를 넣는다
 for (let i = 0; i < n; i++) {
   for (let j = 0; j < m; j++) {
     if (map[i][j] >= 1 && map[i][j] <= 5) {
