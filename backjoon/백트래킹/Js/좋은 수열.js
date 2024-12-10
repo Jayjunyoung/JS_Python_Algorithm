@@ -17,7 +17,7 @@ const dfs = (L) => {
   } else {
     for (let i = 1; i <= 3; i++) {
       temp[L] = i;
-      if (check(temp, L + 1)) {
+      if (Check(temp, L + 1)) {
         dfs(L + 1);
       }
     }
@@ -26,7 +26,8 @@ const dfs = (L) => {
 
 dfs(0);
 
-function check(temp, length) {
+//좋은 수열 인지 판단하는 함수
+function Check(temp, length) {
   for (let i = 1; i <= Math.floor(length / 2); i++) {
     const sub1 = temp.slice(length - i * 2, length - i).join("");
     const sub2 = temp.slice(length - i, length).join("");

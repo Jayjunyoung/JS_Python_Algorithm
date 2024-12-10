@@ -54,7 +54,7 @@ const checkMap = (arr) => {
 
 //dfs를 통해 장애물을 놓는걸로 구현
 const dfs = (L) => {
-  if (L === 3) {
+  if (L == 3) {
     let res = checkMap(map.map((v) => [...v]));
     if (res) {
       flag = true;
