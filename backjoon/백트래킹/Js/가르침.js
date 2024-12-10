@@ -1,3 +1,4 @@
+const { count } = require("console");
 const { promisify } = require("util");
 
 const input = require("fs")
@@ -33,18 +34,19 @@ if (leftover < 0) {
 }
 
 // 각 단어에 대해 필요한 알파벳 분석
-let possible = filteredInput.length; // 배울 수 있는 단어의 초기값
+let possible = filteredInput.length;
 filteredInput.forEach((w) => {
   if (w.length <= leftover) {
-    alpha = [...alpha, ...w]; //여기에는 r 두개가 들어가지만 이후 Set을 통해 중복 제거
-    candidate.push(w); //w는 1차원 배열로 구성되어 있을 것 [[r], [r]]
+    alpha = [...alpha, ...w];
+    candidate.push(w); // 이때 candidate = [[r], [r]];
   } else {
     possible--;
   }
 });
+// 배울 수 있는 단어의 초기값
 
 // 중복 제거하여 배워야 할 알파벳 리스트 생성
-alpha = [...new Set(alpha)];
+alpha = [...new Set(alpha)]; //alpha = ['r']
 
 // 배울 수 있는 알파벳이 충분한 경우 바로 결과 반환
 if (alpha.length <= leftover) {
@@ -53,15 +55,14 @@ if (alpha.length <= leftover) {
 }
 
 // 비트마스크로 조합 탐색 2^alpha.length
-// r 하나이므로 2^1 = 2
+// alpha를 보면 r이 하나이므로 2^1 = 2
 for (let i = 0; i < 1 << alpha.length; i++) {
   if (countBits(i) === leftover) {
-    //index: 알파벳의 위치
-    const learnedAlpha = alpha.filter((_, index) => i & (1 << index)); // 현재 배운 알파벳 조합
+    let learnedAlpha = alpha.filter((_, index) => i & (1 << index));
     let sum = 0;
 
     candidate.forEach((word) => {
-      if (canLearn(word, learnedAlpha)) {
+      if (canMake(word, learnedAlpha)) {
         sum++;
       }
     });
@@ -72,20 +73,21 @@ for (let i = 0; i < 1 << alpha.length; i++) {
 
 console.log(answer);
 
-// 비트마스크에서 1의 개수 세기
+// 비트마스크에서 1의 개수를 세는 함수
 function countBits(n) {
   let count = 0;
   while (n > 0) {
-    count += n & 1; //현재 가장 오른쪽의 비트가 1인지 확인 -> 13일 경우 1이 3개가 오른쪽 끝에 갈 것이므로 count는 3
+    //오른쪽으로 1칸 씩 움직이면서 끝에 1이 있을때마다 count 증가시키기
+    count += n & 1;
     n >>= 1;
   }
   return count;
 }
 
 // 단어를 배울 수 있는지 확인
-function canLearn(word, alpha) {
+function canMake(word, learnedAlpha) {
   for (let char of word) {
-    if (!alpha.includes(char)) {
+    if (!learnedAlpha.includes(char)) {
       return false;
     }
   }
