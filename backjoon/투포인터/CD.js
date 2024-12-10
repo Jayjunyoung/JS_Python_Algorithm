@@ -14,19 +14,19 @@ while (true) {
 
   if (n === 0 && m === 0) break;
 
-  const CDsA = input.slice(index + 1, index + 1 + n).map(Number);
-  const CDsB = input.slice(index + 1 + n, index + 1 + n + m).map(Number);
+  const sliceA = input.slice(index + 1, index + 1 + n).map(Number);
+  const sliceB = input.slice(index + 1 + n, index + 1 + n + m).map(Number);
 
   let i = 0;
   let j = 0;
   let count = 0;
 
   while (i < n && j < m) {
-    if (CDsA[i] === CDsB[j]) {
-      count++;
+    if (sliceA[i] === sliceB[j]) {
       i++;
       j++;
-    } else if (CDsA[i] < CDsB[j]) {
+      count++;
+    } else if (sliceA[i] < sliceB[j]) {
       i++;
     } else {
       j++;
