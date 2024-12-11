@@ -30,6 +30,7 @@ while (right < n) {
     left++;
   }
 
+  //여기서 left는 위에서 ++로 증가되어 2라도 계산할 때는 1일 것
   maxLen = Math.max(maxLen, right - left + 1);
   right++;
 }
