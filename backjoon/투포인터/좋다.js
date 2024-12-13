@@ -14,6 +14,7 @@ for (let i = 0; i < n; i++) {
   //numberArray 배열을 체크하기 위한 인덱스
   let left = 0;
   let right = n - 1;
+  //i가 다음으로 넘어 갈 때 left 0 right는 9 유지
 
   while (left < right) {
     if (left === i) {
