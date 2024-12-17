@@ -26,12 +26,14 @@ function solution(want, number, discount) {
   let answer = 0;
 
   for (let i = 0; i < discount.length - 9; i++) {
-    const discount10d = {};
+    const discount10d = {}
 
-    for (let j = i; j < i + 10; j++) {
-      if (wantObj[discount[j]]) {
+    for(let j = i; j < i + 10; j++) {
+
+      if(wantObj[discount[j]]) {
         discount10d[discount[j]] = (discount10d[discount[j]] || 0) + 1;
       }
+      
     }
 
     if (isShallowHash(discount10d, wantObj)) {
