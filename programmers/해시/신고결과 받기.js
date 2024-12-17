@@ -25,6 +25,8 @@ function solution(id_list, report, k) {
   let report_list = Array.from(report_map.values());
 
   report_count.forEach((value, key) => {
+    //map 자료구조에 forEach를 쓰면 삽입된 순서대로 함수가 실행
+    //map에 forEach를 접근하면 인자가 value, key, map 순이다
     if (value >= k) {
       report_list.forEach((list, index) => {
         if (list.includes(key)) {
