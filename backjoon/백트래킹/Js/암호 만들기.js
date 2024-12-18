@@ -7,7 +7,7 @@ const input = require("fs")
 const [L, C] = input.shift().split(" ").map(Number);
 
 const alphabets = input[0].split(" ").sort();
-const vowel = ["a", "e", "i", "o", "u"];
+const vowel = ["a", "e", "i", "o", "u"]; //모음을 의미
 const answer = [];
 
 const dfs = (alphabet, startIndex) => {
@@ -18,6 +18,7 @@ const dfs = (alphabet, startIndex) => {
       if (vowel.includes(alphabet[i])) cnt++;
     }
     if (cnt > 0 && L - cnt > 1) {
+      //모음과 자음의 갯수 조건 판단 후 alphaber 넣기
       answer.push(alphabet);
     }
   } else {

@@ -22,6 +22,7 @@ for (let i = 0; i < input.length - 1; i++) {
     for (let j = start; j < k; j++) {
       combination.push(arr[j]);
       dfs(j + 1);
+      //조합에서 현재 요소 제거하는 백트래킹킹
       combination.pop();
     }
   };
