@@ -45,8 +45,10 @@ const Combination = (arr, num) => {
     const reminder = origin.slice(index + 1); //origin: 원본 배열
     const combinations = Combination(reminder, num - 1);
     const combine = combinations.map((v) => [select, ...v]);
+    //combine = [['A', 'B'], ['A', 'C'], ['A', 'D']];
     result.push(...combine);
   });
 
+  //2차원 배열 구조임 -> 이후에 m.join("")을 통해 배열이 합쳐질 것
   return result;
 };

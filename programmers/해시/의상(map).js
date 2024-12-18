@@ -12,7 +12,7 @@ function solution(clothes) {
     }
   });
 
-  //map의 값을 기반으로 배열로 만든 뒤 접근
+  //map의 값을 기반으로 이터러블 객체로 만든 뒤 접근
   for (let count of clothMap.values()) {
     answer *= count + 1;
   }
