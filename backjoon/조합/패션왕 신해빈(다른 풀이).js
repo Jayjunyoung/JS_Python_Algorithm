@@ -32,7 +32,8 @@ for (let i = 0; i < Number(cases); i++) {
     answer += n + "\n";
   } else {
     const dressMapArray = Array.from(dress);
-    //dress는 키-값 쌍의 배열로 반환
+    //dress를 키-값 쌍의 배열로 반환
+    //ex dressMapArray[0] 을 출력하면 map 자료구조 였을때의 첫번째 key - value로 이루어진 배열 요소 출력
     dressMapArray.forEach(([type, count]) => {
       //의상을 선택하지 않는 경우도 포함
       sum *= Number(count) + 1;
