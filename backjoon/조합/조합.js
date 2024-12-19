@@ -1,5 +1,3 @@
-const { compileFunction } = require("vm");
-
 const input = require("fs")
   .readFileSync(process.platform === "linux" ? "./dev/stdin" : "./input.txt")
   .toString()
@@ -18,6 +16,7 @@ function combination(n, m) {
     denominator *= BigInt(i + 1);
   }
 
+  //BigInt 이기 때문에 toString()으로 해줘야함
   return (numerator / denominator).toString();
 }
 

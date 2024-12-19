@@ -51,6 +51,7 @@ const getCombinations = (arr, selectedNumber) => {
 
 const isConnected = (selected) => {
   const queue = [selected[0]];
+  //7명이 있는 좌표를 방문처리 하기 위한 배열
   const visited = Array(selected.length).fill(false);
   visited[0] = true;
   let count = 1;
@@ -64,6 +65,7 @@ const isConnected = (selected) => {
 
       for (let i = 0; i < selected.length; i++) {
         if (!visited[i] && selected[i][0] === nx && selected[i][1] === ny) {
+          //이동한 좌표들이 선택된 좌표들과 동일해야 queue에 넣어주는거지
           queue.push([nx, ny]);
           visited[i] = true;
           count++;

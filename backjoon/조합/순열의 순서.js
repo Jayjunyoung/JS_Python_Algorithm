@@ -13,7 +13,7 @@ rl.on("line", (line) => {
 
   console.log(solution(N, Number(type), nums));
 });
-
+//Array(N + 1)의 각 요소를 복사하여 새로운 배열을 생성
 const solution = (N, type, nums) => {
   //각 숫자의 팩토리얼 값을 미리 계산하여 저장
   const factorial = Array.from(Array(N + 1)).reduce((array, _, i) => {
