@@ -8,6 +8,7 @@ function solution(id_list, report, k) {
   });
   //frodo가 junyoung을 4번 신고하면 1번 신고한거로 간주
   let report_set = new Set(report);
+  //몇 번 신고됐는지를 나타내기 위한 map
   let report_count = new Map();
 
   report_set.forEach((re) => {

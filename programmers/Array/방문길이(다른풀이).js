@@ -37,5 +37,6 @@ function solution(dirs) {
     [x, y] = [nx, ny];
   }
 
+  //중복이 없는 고유한 경로의 갯수를 구할려면 나누기 2
   return visited.size / 2;
 }
