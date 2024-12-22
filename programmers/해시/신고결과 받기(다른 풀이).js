@@ -1,5 +1,5 @@
 function solution(id_list, report, k) {
-  let count = {};
+  let count = {}; //신고 한 사람이 2명 이상인 id_list에 있는 사람을 count 객체에 넣기
   let reportedUser = {}; //키: 신고 당한 사람, 값: 신고를 한 사람(얜 중복이 안돼)
 
   for (let re of report) {

@@ -12,6 +12,7 @@ function solution(orders, course) {
       menu.push(...comb);
     }
 
+    //counter 객체에서 가장 많이 등장한 조합의 빈도(max)를 계산
     const counter = {};
 
     for (const m of menu) {
@@ -22,6 +23,7 @@ function solution(orders, course) {
 
     const max = Math.max(...Object.values(counter));
 
+    //최소 2번 이상 등장한 조합만 추가
     if (max > 1) {
       for (let [key, value] of Object.entries(counter)) {
         if (value === max) {
