@@ -26,6 +26,7 @@ for (let i = 0; i < 5; i++) {
 // 7명의 학생을 선택 (조합) 여기부터 밑에까지가 문제의 핵심 코드
 
 const getCombinations = (arr, selectedNumber) => {
+  //selectedNumber가 1일때를 따져줘야함함
   if (selectedNumber === 1) return arr.map((v) => [v]);
   const combination = [];
   arr.forEach((fixed, index, origin) => {
@@ -47,7 +48,7 @@ const getCombinations = (arr, selectedNumber) => {
   return combination;
 };
 
-// BFS로 연결 확인
+// BFS로 7개가 연결되어있는지 확인
 
 const isConnected = (selected) => {
   const queue = [selected[0]];
@@ -66,8 +67,8 @@ const isConnected = (selected) => {
       for (let i = 0; i < selected.length; i++) {
         if (!visited[i] && selected[i][0] === nx && selected[i][1] === ny) {
           //이동한 좌표들이 선택된 좌표들과 동일해야 queue에 넣어주는거지
-          queue.push([nx, ny]);
           visited[i] = true;
+          queue.push([nx, ny]);
           count++;
         }
       }
