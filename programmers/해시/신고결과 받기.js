@@ -30,6 +30,8 @@ function solution(id_list, report, k) {
     //map에 forEach를 접근하면 인자가 value, key, map 순이다
     if (value >= k) {
       report_list.forEach((list, index) => {
+        //각 list마다 index 0으로 시작
+        //[frodo, neo] [frode, neo] => frodo랑 neo는 0, 1 인덱스에 두번씩 추가되겠네
         if (list.includes(key)) {
           answer[index] += 1;
         }
