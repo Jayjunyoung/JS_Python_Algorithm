@@ -13,6 +13,7 @@ function solution(want, number, discount) {
     }
 
     if (i >= 9) {
+      //i가 10으로 되는 순간 i는 1부터 10까지 10개를 따지기 때문에 i가 0인 cntArray 갯수 감소
       if (want.includes(discount[i - 10])) {
         cntArray[want.indexOf(discount[i - 10])]--;
       }

@@ -37,9 +37,9 @@ const check = (row, col, value) => {
     if (map[row][i] === value || map[i][col] === value) return false;
   }
 
-  for (let i = threeRow; i < threeRow + 3; i++) {
-    for (let j = threeCol; j < threeCol + 3; j++) {
-      if (map[i][j] === value) return false;
+  for(let i = threeRow; i < threeRow + 3; i++) {
+    for(let j = threeCol; j < threeCol + 3; j++) {
+      if(map[i][j] === value) return false;
     }
   }
   return true;
