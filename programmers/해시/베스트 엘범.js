@@ -31,6 +31,7 @@ function solution(genres, plays) {
     let current = [];
     for (let j = 0; j < allInfoObj.length; j++) {
       if (val[0] === allInfoObj[j].genre) {
+        //allInfoObj의 각 요소는 객체임
         current.push(allInfoObj[j]);
       }
     }
