@@ -13,12 +13,13 @@ let minToAdd = Infinity;
 let start = 0;
 
 for (let end = 0; end < n; end++) {
-  //5보다 커지면 연속으로 5개 이어져야하는 규칙을 위반하므로 start를 앞으로 이동
-  while (array[end] - array[start] >= 5) {
+  if (array[end] - array[start] >= 5) {
+    //차이가 5보다 크거나 같다는건 5 6 7 8 9 10 즉 숫자가 6개가 정렬되어있다는 것
+    //이땐 start를 뒤로 밀어서 5개를 맞춰야됌
     start++;
   }
 
-  const currentLength = end - start + 1;
+  let currentLength = end - start + 1;
 
   minToAdd = Math.min(minToAdd, 5 - currentLength);
 }
