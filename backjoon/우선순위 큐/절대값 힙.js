@@ -4,8 +4,8 @@ const input = require("fs")
   .trim()
   .split("\n");
 
-//최대힙 구현
-class MaxHeap {
+//최소힙 구현
+class MinHeap {
   constructor() {
     this.items = [];
   }
@@ -24,11 +24,11 @@ class MaxHeap {
       return 0;
     }
 
-    const max = this.items[0];
+    const min = this.items[0];
     this.items[0] = this.items[this.size() - 1];
     this.items.pop();
     this.bubbleDown();
-    return max;
+    return min;
   }
 
   swap(a, b) {
@@ -41,7 +41,7 @@ class MaxHeap {
     while (index > 0) {
       let parentIndex = Math.floor((index - 1) / 2);
 
-      if (this.items[parentIndex] >= this.items[index]) {
+      if (this.items[parentIndex] <= this.items[index]) {
         break;
       }
 
@@ -56,24 +56,24 @@ class MaxHeap {
       let leftChild = index * 2 + 1;
       let rightChild = index * 2 + 2;
 
-      let largerChild =
+      let smallerChild =
         rightChild < this.size() &&
-        this.items[rightChild] > this.items[leftChild]
+        this.items[rightChild] < this.items[leftChild]
           ? rightChild
           : leftChild;
 
-      if (this.items[index] >= this.items[smallerChild]) {
+      if (this.items[index] <= this.items[smallerChild]) {
         break;
       }
 
-      this.swap(index, largerChild);
-      index = largerChild;
+      this.swap(index, smallerChild);
+      index = smallerChild;
     }
   }
 }
 
 const n = +input.shift();
-const minHeap = new MaxHeap();
+const minHeap = new MinHeap();
 const results = [];
 
 for (let i = 0; i < n; i++) {
