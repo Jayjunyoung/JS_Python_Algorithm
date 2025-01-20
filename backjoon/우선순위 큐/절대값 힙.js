@@ -41,7 +41,11 @@ class MinHeap {
     while (index > 0) {
       let parentIndex = Math.floor((index - 1) / 2);
 
-      if (this.items[parentIndex] <= this.items[index]) {
+      if (
+        Math.abs(this.items[parentIndex]) < Math.abs(this.items[index]) ||
+        (Math.abs(this.items[parentIndex]) === Math.abs(this.items[index]) &&
+          this.items[parentIndex] <= this.items[index])
+      ) {
         break;
       }
 
@@ -58,11 +62,18 @@ class MinHeap {
 
       let smallerChild =
         rightChild < this.size() &&
-        this.items[rightChild] < this.items[leftChild]
+        (Math.abs(this.items[rightChild]) < Math.abs(this.items[leftChild]) ||
+          (Math.abs(this.items[rightChild]) ===
+            Math.abs(this.items[leftChild]) &&
+            this.items[rightChild] < this.items[leftChild]))
           ? rightChild
           : leftChild;
 
-      if (this.items[index] <= this.items[smallerChild]) {
+      if (
+        Math.abs(this.items[index]) < Math.abs(this.items[smallerChild]) ||
+        (Math.abs(this.items[index]) === Math.abs(this.items[smallerChild]) &&
+          this.items[index] <= this.items[smallerChild])
+      ) {
         break;
       }
 
@@ -79,9 +90,10 @@ const results = [];
 for (let i = 0; i < n; i++) {
   const number = +input[i];
 
-  if (number > 0) {
+  if (number !== 0) {
+    //절대값은 음수도 삽입 가능해야 하므로 조건문 로직 변경
     minHeap.push(number);
-  } else if (number === 0) {
+  } else {
     results.push(minHeap.pop());
   }
 }
