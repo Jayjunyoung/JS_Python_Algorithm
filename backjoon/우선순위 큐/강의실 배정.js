@@ -25,7 +25,7 @@ class MinHeap {
 
     const min = this.items[0];
     this.items[0] = this.items[this.size() - 1];
-    this.items.pop();
+    this.items.pop(); //기본 자바스크립트의 pop()를 의미한다
     this.bubbleDown();
     return min;
   }
@@ -92,6 +92,8 @@ for (let i = 1; i < n; i++) {
   // 현재 강의 시작 시간보다 더 일찍 끝나는 강의가 있다면, 해당 강의실 재활용
   if (mh.items[0] <= start) {
     console.log(mh.items[0]); //console 찍어보니 3이 나옴
+    //mh.items[0]은 가장 작은 종료시간인 3이 담겨있고 즉 start보다 작으므로 재활용 가능
+    //3 제거되고 5가 추가 -> 클래스에 작성한 pop 메소드를 의미한다
     mh.pop();
   }
   mh.push(finish);
