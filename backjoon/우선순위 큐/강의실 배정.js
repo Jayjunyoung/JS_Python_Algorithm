@@ -15,7 +15,7 @@ class MinHeap {
 
   push(item) {
     this.items.push(item);
-    this.bubbleUp();
+    this.bubbleUp(); //힙 위치 재정렬 시켜줌
   }
 
   pop() {
@@ -26,7 +26,7 @@ class MinHeap {
     const min = this.items[0];
     this.items[0] = this.items[this.size() - 1];
     this.items.pop(); //기본 자바스크립트의 pop()를 의미한다
-    this.bubbleDown();
+    this.bubbleDown(); //힙 위치 재정렬 시켜줌
     return min;
   }
 
