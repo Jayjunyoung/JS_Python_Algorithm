@@ -1,7 +1,15 @@
 const axios = require("axios");
 
 // 사용할 알고리즘 태그 목록
-const tags = ["bfs", "two_pointer", "greedy", "backtracking"];
+const tags = [
+  "bfs",
+  "two_pointer",
+  "greedy",
+  "backtracking",
+  "dfs",
+  "implementation",
+  "dijkstra",
+];
 
 // 한글이 포함된 문제인지 확인하는 함수
 function isKoreanTitle(title) {
