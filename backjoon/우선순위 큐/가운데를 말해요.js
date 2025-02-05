@@ -112,12 +112,12 @@ class MaxHeap {
       return null;
     }
 
-    const min = this.items[0];
+    const max = this.items[0];
     this.items[0] = this.items[this.size() - 1];
 
     this.items.pop();
     this.bubbleDown();
-    return min;
+    return max;
   }
 
   bubbleDown() {
