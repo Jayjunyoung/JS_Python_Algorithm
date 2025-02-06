@@ -89,6 +89,7 @@ friendXY.forEach((v) => {
   let visited = new Set();
   visited.add(`${v[0]},${v[1]}`);
   selectPath([v], v[0], v[1], paths, visited);
+  //paths는 2차원배열이므로 allPaths는 3차원 배열이 됌
   allPaths.push([...paths].map(JSON.parse)); // JSON 파싱하여 배열로 변환
 });
 
