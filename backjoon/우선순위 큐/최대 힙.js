@@ -62,7 +62,7 @@ class MaxHeap {
           ? rightChild
           : leftChild;
 
-      if (this.items[index] >= this.items[smallerChild]) {
+      if (this.items[index] >= this.items[largerChild]) {
         break;
       }
 
@@ -73,16 +73,16 @@ class MaxHeap {
 }
 
 const n = +input.shift();
-const minHeap = new MaxHeap();
+const maxHeap = new MaxHeap();
 const results = [];
 
 for (let i = 0; i < n; i++) {
   const number = +input[i];
 
   if (number > 0) {
-    minHeap.push(number);
+    maxHeap.push(number);
   } else if (number === 0) {
-    results.push(minHeap.pop());
+    results.push(maxHeap.pop());
   }
 }
 
