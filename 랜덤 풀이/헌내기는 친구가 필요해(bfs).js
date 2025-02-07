@@ -19,7 +19,6 @@ const dir = [
   [0, 1],
 ];
 
-let queue = [];
 const map = input.map((v) => v.trim().split(""));
 let visited = Array.from({ length: n }, () => Array(m).fill(false));
 

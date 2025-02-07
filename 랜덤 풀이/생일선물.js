@@ -23,7 +23,7 @@ for (let end = 0; end < n; end++) {
   sum += line[end][1];
 
   while (line[end][0] - line[start][0] >= d) {
-    //기존 구간에서 빼야할 값을 빼주기
+    //기존 구간에 있던 만족도를 빼주기
     sum -= line[start][1];
     start++;
   }
