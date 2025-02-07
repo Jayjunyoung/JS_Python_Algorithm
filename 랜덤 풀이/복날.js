@@ -26,6 +26,7 @@ for (let i = 0; i < n; i++) {
   for (let j = i + 1; j < n; j++) {
     const [x1, y1] = bunkers[i];
     const [x2, y2] = bunkers[j];
+
     const dist = Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 
     if (dist <= maxDist + EPSILON) {
@@ -47,7 +48,7 @@ const bfs = () => {
     // 목적지 도달 확인
     // 시작노드는 제외하기위해 - 1해줌
     if (current === n - 1) {
-      console.log(`Yes, visiting ${count} other holes.`);
+      console.log(`Yes, visiting ${count - 1} other holes.`);
       return;
     }
 
