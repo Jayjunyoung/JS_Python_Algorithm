@@ -16,6 +16,7 @@ bunkers.unshift([xs, ys]); // 시작점 추가
 bunkers.push([xt, yt]); // 목적지 추가
 
 const n = bunkers.length;
+//벙커는 시작점/도착점 추가해서 4개 존재
 //인접리스트 기반의 그래프 탐색
 const graph = Array.from({ length: n }, () => []);
 
@@ -30,6 +31,9 @@ for (let i = 0; i < n; i++) {
     const dist = Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
 
     if (dist <= maxDist + EPSILON) {
+      //양방향 그래프를 만들기 위해 양쪽에 push
+      //즉, 무방향 그래프
+      //벙커 간에 이동이 자유롭기 때문에 무방향 그래프
       graph[i].push(j);
       graph[j].push(i);
     }

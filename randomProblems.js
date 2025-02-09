@@ -9,6 +9,7 @@ const tags = [
   "dfs",
   "implementation",
   "dijkstra",
+  "combinatorics",
 ];
 
 // 한글이 포함된 문제인지 확인하는 함수
