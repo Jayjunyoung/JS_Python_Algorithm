@@ -1,80 +1,95 @@
 function solution(points, routes) {
-  let visited = new Map();
+  let visitedPositions = new Map();
 
-  // 특정 위치와 시간에서 로봇이 있었는지 기록
-  const isCrushed = (sr, sc, cnt) => {
-    const locKey = `${sr},${sc},${cnt}`;
-    if (visited.has(locKey)) {
-      visited.set(locKey, visited.get(locKey) + 1);
+  // 로봇이 특정 위치와 시간에 있었는지 기록
+  const recordRobotPosition = (row, col, time) => {
+    const positionKey = `${row},${col},${time}`;
+    if (visitedPositions.has(positionKey)) {
+      visitedPositions.set(positionKey, visitedPositions.get(positionKey) + 1);
     } else {
-      visited.set(locKey, 1);
+      visitedPositions.set(positionKey, 1);
     }
   };
 
   // 로봇 이동 처리 함수
-  const moveFC = (sr, sc, er, ec, tmp, same) => {
-    let cnt = tmp;
-    if (!same) {
-      isCrushed(sr, sc, cnt);
+  const moveRobot = (
+    startRow,
+    startCol,
+    endRow,
+    endCol,
+    currentTime,
+    isFirstMove
+  ) => {
+    let time = currentTime;
+
+    // 첫 번째 이동일 경우 출발 위치 기록
+    if (!isFirstMove) {
+      recordRobotPosition(startRow, startCol, time);
     }
 
-    // 행(row) 이동
-    if (sr < er) {
-      while (sr < er) {
-        cnt++;
-        sr++;
-        isCrushed(sr, sc, cnt);
+    // 세로(행) 방향으로 이동
+    if (startRow < endRow) {
+      while (startRow < endRow) {
+        time++;
+        startRow++;
+        recordRobotPosition(startRow, startCol, time);
       }
     } else {
-      while (sr > er) {
-        cnt++;
-        sr--;
-        isCrushed(sr, sc, cnt);
+      while (startRow > endRow) {
+        time++;
+        startRow--;
+        recordRobotPosition(startRow, startCol, time);
       }
     }
 
-    // 열(column) 이동
-    if (sc < ec) {
-      while (sc < ec) {
-        cnt++;
-        sc++;
-        isCrushed(sr, sc, cnt);
+    // 가로(열) 방향으로 이동
+    if (startCol < endCol) {
+      while (startCol < endCol) {
+        time++;
+        startCol++;
+        recordRobotPosition(startRow, startCol, time);
       }
     } else {
-      while (sc > ec) {
-        cnt++;
-        sc--;
-        isCrushed(sr, sc, cnt);
+      while (startCol > endCol) {
+        time++;
+        startCol--;
+        recordRobotPosition(startRow, startCol, time);
       }
     }
 
-    return cnt;
+    return time; // 최종 시간 반환
   };
 
   // 모든 로봇 경로 처리
-  const lenR = routes[0].length;
   for (const route of routes) {
-    let same = false;
-    let count = 0;
+    let isFirstMove = false; // 첫 이동 여부
+    let currentTime = 0; // 초기 시간 설정
 
-    for (let i = 1; i < lenR; i++) {
-      const start = route[i - 1];
-      const end = route[i];
-      const [sr, sc] = points[start - 1];
-      const [er, ec] = points[end - 1];
+    for (let i = 1; i < route.length; i++) {
+      const startPointIndex = route[i - 1];
+      const endPointIndex = route[i];
+      const [startRow, startCol] = points[startPointIndex - 1];
+      const [endRow, endCol] = points[endPointIndex - 1];
 
-      count = moveFC(sr, sc, er, ec, count, same);
-      same = true;
+      currentTime = moveRobot(
+        startRow,
+        startCol,
+        endRow,
+        endCol,
+        currentTime,
+        isFirstMove
+      );
+      isFirstMove = true; // 첫 이동 이후로는 출발 위치를 다시 기록하지 않음
     }
   }
 
   // 충돌 개수 계산
-  let answer = 0;
-  for (const [key, value] of visited) {
-    if (value > 1) {
-      answer++;
+  let collisionCount = 0;
+  for (const [, robotCount] of visitedPositions) {
+    if (robotCount > 1) {
+      collisionCount++;
     }
   }
 
-  return answer;
+  return collisionCount;
 }
