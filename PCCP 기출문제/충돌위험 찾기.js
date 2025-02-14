@@ -10,6 +10,7 @@ function solution(points, routes) {
 
   routes.forEach((route) => {
     let startPoint = route.shift();
+    //이동경로 담는 배열
     let history = [points[startPoint - 1]];
 
     while (route.length) {
@@ -31,16 +32,20 @@ function solution(points, routes) {
 
   let answer = 0;
   let index = 0;
+  //maxIndex: 가장 긴 이동경로 길이
   while (index <= maxIndex) {
     let crushPoints = [];
     for (let i = 0; i < arr.length - 1; i++) {
       for (let j = i + 1; j < arr.length; j++) {
+        //arr은 3차원 배열
         if (
           arr[i][index] &&
           arr[j][index] &&
           arr[i][index][0] === arr[j][index][0] &&
           arr[i][index][1] === arr[j][index][1]
         ) {
+          //충돌 리스트에 이미 있는지 판단
+          //없다면 crushPoints에 푸쉬하고 answer++ ㄱㄱ
           let alreadyInclude = crushPoints.some((point) => {
             return (
               point[0] === arr[i][index][0] && point[1] === arr[i][index][1]
