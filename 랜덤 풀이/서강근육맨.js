@@ -9,7 +9,7 @@ const input = fs
 const n = +input.shift();
 
 const muscleLost = input[0].split(" ").map(BigInt);
-console.log(muscleLost);
+
 //BigInt 자료형으로 접근했어야돼.
 //근 손실 정도 데이터가 10^18임
 let answer = 0n;

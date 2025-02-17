@@ -7,6 +7,7 @@ const input = fs
   .split("\n");
 
 const [n, k] = input.shift().split(" ").map(Number);
+
 const max = 100000;
 const visited = Array(max + 1).fill(Infinity);
 const deque = [];
@@ -28,7 +29,6 @@ while (deque.length > 0) {
   }
 
   for (let next of [x - 1, x + 1]) {
-    ///+1 해주는 이유 : 순간이동이 아닐때는 1초 소요
     if (next >= 0 && next <= max && visited[next] > visited[x] + 1) {
       visited[next] = visited[x] + 1;
       deque.push(next);
