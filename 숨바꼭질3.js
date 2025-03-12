@@ -7,7 +7,6 @@ const input = fs
   .split("\n");
 
 const [n, k] = input.shift().split(" ").map(Number);
-
 const max = 100000;
 const visited = Array(max + 1).fill(Infinity);
 const deque = [];
