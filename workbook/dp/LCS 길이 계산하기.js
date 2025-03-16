@@ -2,7 +2,7 @@ function solution(str1, str2) {
   const m = str1.length;
   const n = str2.length;
 
-  //2차원 dp 배열 생성
+  //2차원 dp 배열 생성 -> 첫번째 행과 열은 0으로 초기화
   const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
 
   for (let i = 1; i <= m; i++) {
