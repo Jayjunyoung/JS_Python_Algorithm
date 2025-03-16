@@ -3,7 +3,7 @@ function solution(arr) {
 
   const dp = Array.from({ length: 4 }, () => Array(n).fill(0));
 
-  //dp의 첫 번째 줄에 가중치를 초기화화
+  //dp의 첫 번째 줄에 가중치를 초기화
   dp[0][0] = arr[0][0];
   dp[1][0] = arr[1][0];
   dp[2][0] = arr[2][0];
