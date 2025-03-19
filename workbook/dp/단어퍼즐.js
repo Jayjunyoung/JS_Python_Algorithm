@@ -12,6 +12,5 @@ function solution(strs, t) {
       }
     }
   }
-
   return dp[n] === Infinity ? -1 : dp[n];
 }
