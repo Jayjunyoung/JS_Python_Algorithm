@@ -14,6 +14,7 @@ function solution(board) {
     }
   }
 
+  //Math.max(...row) => [1, 1, 1, 1] 이런 형태로 되어있을 것
   const maxVal = Math.max(...board.map((row) => Math.max(...row)));
 
   return maxVal * maxVal;
