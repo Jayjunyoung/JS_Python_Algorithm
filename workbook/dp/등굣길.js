@@ -11,6 +11,7 @@ function solution(m, n, puddles) {
       if (isPuddle(col, row, puddles)) {
         dp[row][col] = 0; // 물웅덩이 위치는 경로 없음
       } else {
+        //row가 1일때 dp[0]이 되므로 1보다 무조건 커야함
         let fromTop = row > 1 ? dp[row - 1][col] : 0;
         let fromLeft = col > 1 ? dp[row][col - 1] : 0;
         dp[row][col] = (fromTop + fromLeft) % MOD;
