@@ -17,6 +17,7 @@ function solution(begin, target, words) {
     words.forEach((word) => {
       let notEqual = 0;
 
+      //현재 진행 중인 word 건너띄고 다음 word로 진행
       if (visited.includes(word)) return;
 
       for (let i = 0; i < word.length; i++) {
@@ -24,7 +25,7 @@ function solution(begin, target, words) {
       }
 
       if (notEqual === 1) {
-        queue.push([word, ++cnt]);
+        queue.push([word, cnt + 1]);
         visited.push(word);
       }
     });
