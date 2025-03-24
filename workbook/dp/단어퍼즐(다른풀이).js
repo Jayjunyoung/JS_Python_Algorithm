@@ -8,6 +8,8 @@ function solution(strs, t) {
 
     for (let str of strs) {
       if (current.endsWith(str)) {
+        //current.length = 3;
+        //str.length = 2; diff = 1;
         const diff = current.length - str.length;
 
         if (!diff) {
