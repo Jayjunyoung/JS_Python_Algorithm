@@ -5,14 +5,13 @@ const input = require("fs")
   .split("\n");
 
 const [n, s] = input.shift().split(" ").map(Number);
-//n = 10 , s = 15
+
 const arr = input[0].split(" ").map(Number);
 let minLength = Infinity;
 let sum = 0;
 let i = 0;
 let j = 0;
 
-//이 부분이 핵심
 while (j < n) {
   sum += arr[j];
 
