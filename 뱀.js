@@ -34,17 +34,14 @@ while (1) {
     if (arr[nx][ny] === 2) {
       arr[nx][ny] = 1;
       path.push([nx, ny]);
-      head[0] = nx;
-      head[1] = ny;
+      head = [nx, ny];
     } else if (arr[nx][ny] === 0) {
-      head[0] = nx;
-      head[1] = ny;
+      head = [nx, ny];
       arr[nx][ny] = 1;
       path.push([nx, ny]);
       arr[tail[0]][tail[1]] = 0;
       let next = path.shift();
-      tail[0] = next[0];
-      tail[1] = next[1];
+      tail = [next[0], next[1]];
     }
   }
   time++;
