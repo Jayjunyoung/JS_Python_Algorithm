@@ -16,12 +16,7 @@ for (let i = 2; i <= Math.sqrt(n); i++) {
 }
 
 //값이 true인 것들만 남겨버리기
-const primes = isPrime.reduce((acc, cur, i) => {
-  if (cur === true) {
-    acc.push(i);
-  }
-  return acc;
-}, []);
+const primes = isPrime.map((v, i) => (v ? i : -1)).filter((v, idx) => v !== -1);
 
 let sum = 0;
 let count = 0;
