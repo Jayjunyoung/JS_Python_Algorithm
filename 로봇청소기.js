@@ -22,30 +22,33 @@ const dir = [
 
 while (1) {
   if (cnt === 4) {
-    const backDir = (d + 6) % 4;
+    const back_dir = (d + 6) % 4;
 
-    const [backX, backY] = [x + dir[backDir][0], y + dir[backDir][1]];
+    const [back_x, back_y] = [x + dir[back_dir][0], y + dir[back_dir][1]];
+
     if (
-      map[backX][backY] === 1 ||
-      backX < 0 ||
-      backY < 0 ||
-      backX >= n ||
-      backY >= m
+      map[back_x][back_y] === 1 ||
+      back_x < 0 ||
+      back_y < 0 ||
+      back_x >= n ||
+      back_y >= m
     ) {
       break;
     } else {
-      x = backX;
-      y = backY;
+      x = back_x;
+      y = back_y;
       cnt = 0;
     }
   }
 
+  //방문하지 않았다면 어떻게 처리할래
   if (!visited[x][y]) {
     visited[x][y] = true;
     map[x][y] = 2;
     ans++;
   }
 
+  //좌표 처리
   const leftDir = (d + 3) % 4;
   const [leftX, leftY] = [x + dir[leftDir][0], y + dir[leftDir][1]];
 
