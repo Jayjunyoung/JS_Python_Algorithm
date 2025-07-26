@@ -4,17 +4,6 @@ function solution(m, n, puddles) {
   
   dp[1][1] = 1;
   
-  const isPuddle = (x, y, puddles) => {    
-      
-      for(const puddle of puddles) {
-          if(x === puddle[0] && y === puddle[1]) {
-              return true;
-          }
-      }
-      
-      return false;
-  }
-  
   for(let row = 1; row <= n; row++) {
       for(let col = 1; col <= m; col++) {
           if(row === 1 && col === 1) continue;
@@ -31,4 +20,13 @@ function solution(m, n, puddles) {
   }
   
   return dp[n][m]
+}
+
+const isPuddle = (x, y, puddles) => {    
+  for(const puddle of puddles) {
+      if(x === puddle[0] && y === puddle[1]) {
+          return true;
+      }
+  }
+  return false;
 }
