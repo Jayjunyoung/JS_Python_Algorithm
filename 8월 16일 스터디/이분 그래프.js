@@ -7,6 +7,14 @@ const input = require("fs")
 let tc = +input.shift();
 let index = 0;
 
+/*
+
+1. BFS로 그룹을 번갈아가며 칠함
+2. 인접한 노드가 같은 그룹이면 이분 그래프가 아님
+3. 모든 연결요소를 검사해야 하므로 모든 정점에 대해 BFS 실행
+4. 마지막에 YES/NO 출력
+*/
+
 while (tc--) {
   const [V, E] = input[index++].split(" ").map(Number);
   const graph = Array.from({ length: V + 1 }, () => []);
