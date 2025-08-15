@@ -1,5 +1,6 @@
 function solution(begin, target, words) {
   const visited = { [begin]: 0 };
+  // 키로 접근
   const queue = [begin];
 
   while (queue.length) {
