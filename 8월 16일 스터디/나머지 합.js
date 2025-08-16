@@ -4,7 +4,7 @@ const [N, M] = input[0].split(' ').map(Number);
 const arr = input[1].split(' ').map(Number);
 
 // 누적합 배열 생성
-const prefix_sums = new Array(N + 1).fill(0);
+const prefix_sums = Array(N + 1).fill(0);
 for (let i = 1; i <= N; i++) {
     prefix_sums[i] = prefix_sums[i - 1] + arr[i - 1];
 }

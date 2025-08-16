@@ -52,6 +52,7 @@ while (tc--) {
 
   for (let i = 1; i <= V; i++) {
     if (!visited[i]) {
+      // 만약 bfs 실행 중 이분 그래프가 아니라면 다음 메인 루프로 이동
       bfs(i);
     }
   }
