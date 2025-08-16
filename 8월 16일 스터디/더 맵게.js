@@ -1,5 +1,5 @@
 class MinHeap {
-    // constructor는 클래스의 생성자 메서드로, 힙을 저장할 빈 배열 heap을 초기화합
+    // constructor는 클래스의 생성자 메서드로, 힙을 저장할 빈 배열 heap을 초기화
 	constructor() {
 		this.heap = [];
 	}
@@ -7,13 +7,13 @@ class MinHeap {
 	// getParentIndex 메서드는 주어진 인덱스의 부모 노드 인덱스를 계산하여 반환
 	getParentIndex(index) {
 		return Math.floor((index - 1) / 2);
-        // 부모 노드의 인덱스는 (index - 1) / 2의 내림 값입니다.
+        // 부모 노드의 인덱스는 (index - 1) / 2의 내림 값
 	}
  
 	// getLeftChildIndex 메서드는 주어진 인덱스의 왼쪽 자식 노드 인덱스를 계산하여 반환
 	getLeftChildIndex(index) {
 		return 2 * index + 1;
-        // 왼쪽 자식 노드의 인덱스는 2 * index + 1입니다.
+        // 왼쪽 자식 노드의 인덱스는 2 * index + 1
 	}
  
 	// getRightChildIndex 메서드는 주어진 인덱스의 오른쪽 자식 노드 인덱스를 계산하여 반환
