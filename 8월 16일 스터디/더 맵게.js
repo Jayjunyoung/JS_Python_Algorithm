@@ -59,6 +59,7 @@ class MinHeap {
  
 		// 루트 노드의 값을 root 변수에 저장하고, 힙의 마지막 요소를 루트 노드로 이동
 		const root = this.heap[0];
+        // this.heap.pop()은 힙의 마지막 요소를 제거하는 자바스크립트 pop 메서드
 		this.heap[0] = this.heap.pop();
  
 		// currentIndex는 현재 노드의 인덱스이고, leftChildIndex와 rightChildIndex는 각각 왼쪽과 오른쪽 자식 노드의 인덱스
