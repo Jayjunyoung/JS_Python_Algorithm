@@ -25,6 +25,7 @@ for (let i = 0; i <= N; i++) {
 }
 
 // 같은 나머지를 가진 누적합들 중 2개를 선택하는 경우의 수
+// 4C2 = 6
 remainderCount.forEach((count) => {
     if (count >= 2) {
         answer += (count * (count - 1)) / 2;
