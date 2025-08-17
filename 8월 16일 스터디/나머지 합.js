@@ -15,9 +15,9 @@ let answer = 0;
 
 // 각 누적합의 나머지 계산
 for (let i = 0; i <= N; i++) {
-    const remainder = ((prefix_sums[i] % M) + M) % M; // 음수 처리
-    
-    if (remainderCount.has(remainder)) {
+    const remainder = ((prefix_sums[i] % M) + M) % M;
+
+    if(remainderCount.has(remainder)) {
         remainderCount.set(remainder, remainderCount.get(remainder) + 1);
     } else {
         remainderCount.set(remainder, 1);
