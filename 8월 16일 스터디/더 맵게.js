@@ -127,6 +127,7 @@ function solution(scoville, K) {
 		// mixed를 다시 minHeap에 삽입
 		minHeap.push(mixed);
         
+		//minHeap에 요소 추가됐으므로 섞은 횟수 증가
 		count++;
 	}
     
