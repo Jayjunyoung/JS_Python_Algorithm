@@ -2,10 +2,10 @@ const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("
 
 const [n, m] = input[0].split(" ").map(Number);
 
-const graph = Array.from({length: n + 1}, () => []);
+const graph = Array.from({ length: n + 1 }, () => []);
 let max = 0;
 
-for(let i = 1; i <=m; i++) {
+for(let i = 1; i <= m; i++) {
     const [a, b, weight] = input[i].split(" ").map(Number);
 
     if(max < weight) {
@@ -38,7 +38,7 @@ function BinarySearch(n, graph, start, end, max) {
 }
 
 function BFS(n, graph, start, end, mid) {
-    const visited = Array.from({length: n + 1}, () => false);
+    const visited = Array.from({ length: n + 1 }, () => false);
     const queue = [start];
     visited[start] = true;
 
