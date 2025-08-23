@@ -53,12 +53,15 @@ function BFS(n, graph, start, end, mid) {
             const [next, weight] = graph[current][i];
 
             if(!visited[next] && mid <= weight) {
+                // 방문하지 않았고 중량제한을 초과하지 않는 경우
                 visited[next] = true;
                 queue.push(next);
             }
 
         }
     }
+
+    return false;
 }
 
 
