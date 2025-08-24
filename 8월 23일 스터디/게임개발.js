@@ -1,5 +1,4 @@
-//위상정렬 문제인데 이거는 공부를 하자.. 접근이 안되네
-
+//위상정렬 문제인데 이거는 공부를 하자.. 접근이 안된다
 const input = require("fs").readFileSync("/dev/stdin").toString().trim().split("\n");
 
 const n = +input.shift();
@@ -23,6 +22,8 @@ for(let i = 0; i < n; i++) {
         const prev = preBuildings[j];
         if(prev !== -1) {
             graph[prev].push(i + 1);
+            // 3 : [4]
+            // 4번 입장에서는 진입차수가 오른거지
             inDegree[i + 1]++;
         }
     }
@@ -32,13 +33,12 @@ function topologicalSort() {
     const queue = [];
 
     for(let i = 1; i <= n; i++) {
-
         // 진입차수가 0인 정점을 큐에 삽입
         if(inDegree[i] === 0) {
-            queue.push(i);
-            // 초기 건설 시간 설정
-            completeTime[i] = buildTime[i];
-        }
+          queue.push(i);  
+          // 초기 건설 시간 설정
+          completeTime[i] = buildTime[i]
+        }  
     }
     
     while(queue.length > 0) {
@@ -46,8 +46,8 @@ function topologicalSort() {
 
         for(const next of graph[current]) {
             // 현재 건물 다음에 지을 수 있는 건물의 진입차수 감소
-            inDegree[next]--;
-
+            inDegree[next]--
+            
             // 다음 건물의 완성 시간 업데이트
             completeTime[next] = Math.max(completeTime[next], completeTime[current] + buildTime[next]);
              
@@ -55,6 +55,7 @@ function topologicalSort() {
             if(inDegree[next] === 0) {
                 queue.push(next);
             }
+            
         }
     }
 }
