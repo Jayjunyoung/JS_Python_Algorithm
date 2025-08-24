@@ -7,63 +7,56 @@ let max = 0;
 
 for(let i = 1; i <= m; i++) {
     const [a, b, weight] = input[i].split(" ").map(Number);
-
+    
     if(max < weight) {
-        max = weight;
+        max = weight;   
     }
-
+    
     graph[a].push([b, weight]);
     graph[b].push([a, weight]);
 }
 
 const [start, end] = input[m + 1].split(" ").map(Number);
 
-BinarySearch(n, graph, start, end, max);
+BinarySearch(n, start, end, max, graph);
 
-// 이분탐색을 이용해 최대중량을 찾는다
-function BinarySearch(n, graph, start, end, max) {
+function BinarySearch(n, start, end, max, graph) {
     let left = 1;
     let right = max;
-
-    while(left <= right) { 
+    
+    while(left <= right) {
         const mid = Math.floor((left + right) / 2);
-
-        if(BFS(n, graph, start, end, mid)) {
+        
+        if(BFS(n, start, end, mid, graph)) {
             left = mid + 1;
         } else {
             right = mid - 1;
         }
     }
-    console.log(right);
+    
+    return right;
 }
 
-function BFS(n, graph, start, end, mid) {
-    const visited = Array.from({ length: n + 1 }, () => false);
-    const queue = [start];
+function BFS(n, start, end, mid, graph) {
+    const visited = Array.from({length: n + 1}, () => false);
     visited[start] = true;
-
+    const queue = [start];
+    
     while(queue.length > 0) {
         const current = queue.shift();
-
+        
         if(current === end) {
             return true;
-        }        
-
+        }
+        
         for(let i = 0; i < graph[current].length; i++) {
             const [next, weight] = graph[current][i];
-
+            
             if(!visited[next] && mid <= weight) {
-                // 방문하지 않았고 중량제한을 초과하지 않는 경우
                 visited[next] = true;
                 queue.push(next);
             }
-
+            
         }
-    }
-
-    return false;
+    }  
 }
-
-
-
-
