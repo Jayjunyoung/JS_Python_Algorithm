@@ -28,6 +28,7 @@ function solution(L) {
   const acc = [...build];
 
   // 위상정렬을 위해 선행되는 건물의 개수를 저장할 배열.
+  // 진입 차수 배열
   const prev_cnt = new Array(N + 1).fill(0);
   const graph = Array.from({ length: N + 1 }, () => []);
 
@@ -53,6 +54,7 @@ function solution(L) {
     // 현재 건물을 지은 후,
     // 다음에 지어야 할 건물의 비용을 계산.
     // 비용이 더 큰 경우만 DP 값 업데이트.
+    // 만약 1번 다음 2,3 번을 만드는데 2번부터 만들어버리면 3번을 만들기위한 시간이 충분치 않으므로 4번 또한 만들지 못하게됌
     for (let i = 0; i < graph[curr].length; i++) {
       const next = graph[curr][i];
 
