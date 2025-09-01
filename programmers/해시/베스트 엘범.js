@@ -27,7 +27,7 @@ function solution(genres, plays) {
   }));
 
   // 3번 과정
-  keyValueArr.forEach((val, i) => {
+  keyValueArr.forEach((val, _i) => {
     let current = [];
     for (let j = 0; j < allInfoObj.length; j++) {
       if (val[0] === allInfoObj[j].genre) {
