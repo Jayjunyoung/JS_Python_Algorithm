@@ -23,7 +23,7 @@ const dir = [
 
 const Bfs = (startNode) => {
     const queue = [...startNode];
-    let minDay = 0;
+    let minDay = 0; // 최소 일수
     let front = 0;
 
     while(front < queue.length) {
@@ -45,8 +45,9 @@ const Bfs = (startNode) => {
     // 모든 토마토가 익었는지 확인
     for(let i = 0; i < n; i++) {
         for(let j = 0; j < m; j++) {
+            // 안 익은 토마토가 1개라도 있다면 -1 반환
             if(map[i][j] === 0) return -1;
-        }
+        }   
     }
 
     return minDay;
