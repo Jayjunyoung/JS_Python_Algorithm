@@ -13,7 +13,6 @@ for(let i = 1; i <= e; i++) {
     graph[end].push([start, cost]);
 }
 
-
 const getMinNode = (distance, visited) => {
     let minNode = -1;
     let minDistance = Infinity;
@@ -33,6 +32,7 @@ const dijkstra = (startNode) => {
     const distance = Array(n + 1).fill(Infinity);
     const visited = Array(n + 1).fill(false);
 
+		// 시작점 0으로 초기화
     distance[startNode] = 0;
 
     while(true) {
@@ -50,6 +50,7 @@ const dijkstra = (startNode) => {
     }
 
     return distance;
+    // 배열을 return 하게됌
 }
 
 const start1 = dijkstra(1);
