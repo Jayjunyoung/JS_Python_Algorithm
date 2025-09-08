@@ -35,6 +35,7 @@ const Bfs = (startNode) => {
             const ny = cy + dir[i][1];
             
             if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+            
             if(map[nx][ny] === 0) {  // 익지 않은 토마토만
                 map[nx][ny] = 1;     // 토마토를 익게 만들기
                 queue.push([nx, ny, day + 1]);
