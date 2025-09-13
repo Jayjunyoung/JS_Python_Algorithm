@@ -6,7 +6,8 @@ const moveBlock = (block) => {
 }
 
 const rotate = (block) => {
-    
+    // 블록을 회전 시키는 함수
+    // 호출 하는 쪽에서 4번 순회를 돌것
     const max = Math.max(...block.map(v => Math.max(v[0], v[1])));
     const rotateBlock = block.map(v => [max-v[1], v[0]]); 
     
@@ -30,11 +31,11 @@ const bfs = (start, table, k) => {
             const [nx, ny] = [cx + dx, cy + dy];
             
             if(nx < 0 || ny < 0 || nx >= table.length || ny >= table.length) continue;
-             else if(table[nx][ny]===k) continue;
-             else {
+            else if(table[nx][ny]===k) continue;
+            else {
                 needVisit.push([nx,ny])
                 table[nx][ny]=k
-             }
+            }
         }
     }
     
