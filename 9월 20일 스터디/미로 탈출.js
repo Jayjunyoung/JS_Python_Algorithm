@@ -10,11 +10,10 @@ function solution(maps) {
         [0, -1]
     ]
     
-    const Bfs = (startNode, goal) => {
-        const [sx, sy] = startNode;
+    const Bfs = (startNode) => {
+        const [sx, sy, goal] = startNode;
         //[0, 0]
         let queue = [[sx, sy, 0]];
-        // visited 배열을 내부에서 생성하여 방문 처리
         let visited = Array.from({length: row}, () => Array(col).fill(false));
         visited[sx][sy] = true;
         
@@ -39,11 +38,11 @@ function solution(maps) {
     for(let i = 0; i < row; i++) {
         for(let j = 0; j < col; j++) {
             if(maps[i][j] === 'S') {
-                answer += Bfs([i,j], 'L');
+                answer += Bfs([i,j, 'L']);
             }
             
             if(maps[i][j] === 'L') {
-                answer += Bfs([i, j], 'E');
+                answer += Bfs([i, j, 'E']);
             }
         }
     }
