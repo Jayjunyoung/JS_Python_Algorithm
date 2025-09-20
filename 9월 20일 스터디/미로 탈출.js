@@ -14,6 +14,7 @@ function solution(maps) {
         const [sx, sy] = startNode;
         //[0, 0]
         let queue = [[sx, sy, 0]];
+        // visited 배열을 내부에서 생성하여 방문 처리
         let visited = Array.from({length: row}, () => Array(col).fill(false));
         visited[sx][sy] = true;
         
