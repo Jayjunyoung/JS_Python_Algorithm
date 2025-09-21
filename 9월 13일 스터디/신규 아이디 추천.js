@@ -9,6 +9,7 @@ function solution(new_id) {
 
     const len = answer.length;
     
+    // 마지막 문자를 3이 될 떄까지 반복
     return len > 2 ? answer : answer + answer.charAt(len - 1).repeat(3 - len);
 
 }
