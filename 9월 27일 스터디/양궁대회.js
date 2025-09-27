@@ -11,12 +11,12 @@ function solution(n, info) {
     }
     
     const dfs = (L, idx, ryanInfo) => {
-        
         if(idx === 10 && L < n) {
             ryanInfo[idx] = n - L;
             L = n;
         }
         
+        // 화살 다 쐈으면 점수 계산
         if(L === n) {  
           let appeachScore = 0;
           let ryanScore = 0;
