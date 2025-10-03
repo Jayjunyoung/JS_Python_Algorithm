@@ -69,7 +69,7 @@ function solution(n, paths, gates, summits) {
   const isSummit = new Set(summits);
   // {1, 3, 5}
 
-  // 그래프를 구성한다
+  // 양방향 그래프를 구성한다
   const graph = Array.from({ length: n + 1 }, () => []);
   for (const [a, b, c] of paths) {
     graph[a].push([b, c]);
@@ -80,14 +80,13 @@ function solution(n, paths, gates, summits) {
   const queue = new MinHeap();
   const intensity = Array(n + 1).fill(Infinity);
 
-    
   // 출입구에 대해 큐에 삽입한다.
   for (const gate of gates) {
     queue.add([gate, 0]);
     intensity[gate] = 0;
   }
 
-  // 우선순위 큐 사이즈 확인 뒤 하나하나 빼서 확인 
+  // 우선순위 큐 사이즈 확인 뒤 하나하나 빼서 확인
   while (queue.size()) {
     const [curNode, curWeight] = queue.poll();
 
