@@ -1,7 +1,7 @@
 function solution(today, terms, privacies) {
   const todayDate = Number(today.split(".").join(""));
   let termsObj = {};
-  terms.forEach((term, index) => {
+  terms.forEach((term, _index) => {
     const [contract, month] = term.split(" ");
     termsObj[contract] = Number(month);
   });
