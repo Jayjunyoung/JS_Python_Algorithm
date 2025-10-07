@@ -48,7 +48,7 @@ function pickFun(deliveries, cap) {
   return currentIndex;
 }
 
-function solution(cap, n, deliveries, pickups) {
+function solution(cap, _n, deliveries, pickups) {
   let answer = 0;
   //배열 마지막부터 0이 아닌곳 찾기 전부 0이면 -1을 리턴
 
