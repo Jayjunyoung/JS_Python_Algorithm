@@ -37,7 +37,7 @@ function solution(users, emoticons) {
         // 구매 완료 -> 구매 금액 추가
         sum += costs[i];
       } else {
-        // 사용자가 구매한 값이 본인의 기준을 넘어가면
+        // 사용자가 구매한 값이 본인의 기준 이상 넘어가면
         // 구매 취소 -> 서비스 가입
         service++;
       }
