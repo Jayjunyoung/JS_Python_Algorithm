@@ -33,8 +33,12 @@ function solution(users, emoticons) {
 
     for (let i = 0; i < costs.length; i++) {
       if (costs[i] < users[i][1]) {
+        // 사용자가 구매한 값이 본인의 기준을 넘어가지 않으면
+        // 구매 완료 -> 구매 금액 추가
         sum += costs[i];
       } else {
+        // 사용자가 구매한 값이 본인의 기준을 넘어가면
+        // 구매 취소 -> 서비스 가입
         service++;
       }
     }
