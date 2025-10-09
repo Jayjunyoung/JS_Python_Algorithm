@@ -18,7 +18,7 @@ const solution = (alp, cop, problems) => {
 
   for (let i = alp; i <= alpMax; i++) {
     for (let j = cop; j <= copMax; j++) {
-      if (i == alpMax && j == copMax) break;
+      if (i == alpMax && j == copMax) continue;
 
       // 1. 알고리즘 공부하기 -> 1을 높이기 위해서 1의 시간이 필요
       // 현재 알고력이 목표보다 낮으면 1을 높일 수 있음
