@@ -1,6 +1,6 @@
 function lastFun(arr) {
-  var len = arr.length;
-  for (var i = len - 1; i >= 0; i--) {
+  let len = arr.length;
+  for (let i = len - 1; i >= 0; i--) {
     if (arr[i] !== 0) {
       return i;
     } else {
