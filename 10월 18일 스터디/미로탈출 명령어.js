@@ -1,10 +1,4 @@
 function solution(n, m, x, y, r, c, k) {
-  // 2차원 배열 board판 생성
-  let board = Array.from({ length: n + 1 }, () => Array(m + 1).fill(0));
-  // board 배열판 초기화
-  board[x][y] = "S";
-  board[r][c] = "E";
-
   // 불가능한 경우를 판단해주는 조건 로직
   let fastAnswer = k - (Math.abs(x - r) + Math.abs(y - c));
   if (fastAnswer < 0 || fastAnswer % 2 != 0) return "impossible";
