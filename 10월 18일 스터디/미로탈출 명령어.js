@@ -19,11 +19,11 @@ function solution(n, m, x, y, r, c, k) {
 
   let answer = "z".repeat(k);
 
-  const dfs = (L, py, px, sum, dist) => {
+  const dfs = (L, px, py, sum, dist) => {
     if (L > k) return;
     if (dist > k) return;
 
-    if (L === k && py === r && px === c) {
+    if (L === k && px === r && py === c) {
       if (answer > sum) {
         answer = sum;
         return;
@@ -33,16 +33,16 @@ function solution(n, m, x, y, r, c, k) {
     if (answer !== "z".repeat(k)) return;
 
     for (let i = 0; i < 4; i++) {
-      const dy = py + dir[i][0];
-      const dx = px + dir[i][1];
+      const dx = px + dir[i][0];
+      const dy = py + dir[i][1];
 
-      if (dy <= n && dy > 0 && (dx <= m) & (dx > 0)) {
+      if (dx <= n && dx > 0 && (dy <= m) & (dy > 0)) {
         dfs(
           L + 1,
-          dy,
           dx,
+          dy,
           sum + str[i],
-          Math.abs(dy - r) + Math.abs(dx - c) + L + 1
+          Math.abs(dx - r) + Math.abs(dy - c) + L + 1
         );
       }
     }
