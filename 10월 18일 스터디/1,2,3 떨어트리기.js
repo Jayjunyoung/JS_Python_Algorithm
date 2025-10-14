@@ -27,6 +27,7 @@ function solution(edges, target) {
   // 각 요소에 방문하는 순서 저장하기위함
   let leafOrder = {};
 
+  // 시작점 dfs
   for (let i = 0; i < graph[1].length; i++) {
     treeTraverse(graph[1][i]);
   }
@@ -76,11 +77,13 @@ function solution(edges, target) {
       break;
     }
 
+    // 1번 노드의 자식들 중 다음 방문할 노드 선택
     let next = graph[1][++lastVisited[1] % graph[1].length];
 
     while (1) {
       // 리프노드라면
       if (graph[next].length === 0) {
+        // 방문횟수 증가
         leafOrder[next].push(count + 1);
         count++;
         break;
@@ -97,6 +100,7 @@ function solution(edges, target) {
   let realOrder = {};
 
   if (normalEnd) {
+    // 정상적으로 종료됐다면
     for (let key in leafOrder) {
       let start = target[key - 1] - leafOrder[key].length;
       let array = new Array(leafOrder[key].length).fill(1);
