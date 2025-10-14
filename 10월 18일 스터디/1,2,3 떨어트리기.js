@@ -77,7 +77,10 @@ function solution(edges, target) {
       break;
     }
 
-    // 1번 노드의 자식들 중 다음 방문할 노드 선택
+    // 1번 노드의 자식들 중 다음 방문할 노드 선택 ->즉, 다음 방문할 노드의 인덱스를 구하는거지
+    // 1번 노드의 자식 노드는 2일것이고 2번 노드의 인덱스는 0일것이다
+    // 정리: 그래서 lastVisited[1] % graph[1].length 를 해주면 다음 방문할 노드의 인덱스를 구할 수 있다
+
     let next = graph[1][++lastVisited[1] % graph[1].length];
 
     while (1) {
