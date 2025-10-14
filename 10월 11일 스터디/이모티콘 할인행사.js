@@ -3,7 +3,7 @@ function Permutation(arr, choice) {
 
   if (choice === 1) return arr.map((v) => [v]);
 
-  arr.forEach((v, i, arr) => {
+  arr.forEach((v, _i, arr) => {
     let fixed = v;
     let restArr = arr;
     let permutationArr = Permutation(restArr, choice - 1);
