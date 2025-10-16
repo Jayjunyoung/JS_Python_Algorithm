@@ -4,8 +4,8 @@ function solution(n, results) {
     .fill()
     .map(() => Array(n + 1).fill(false));
 
-  for (const res of results) {
-    dp[res[0]][res[1]] = true;
+  for (const [winner, loser] of results) {
+    dp[winner][loser] = true;
   }
 
   for (let k = 1; k <= n; k++) {
