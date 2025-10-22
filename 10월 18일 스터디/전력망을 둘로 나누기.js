@@ -35,6 +35,7 @@ function solution(n, wires) {
     const countA = bfs(a, b);
     // b를 시작으로 a를 차단했을 때의 연결된 노드 수
     const countB = bfs(b, a);
+    // 차단 한 기점으로 각각의 영역에서 노드가 몇개인지 확인하기 위해 bfs 각각 실행
 
     answer = Math.min(answer, Math.abs(countA - countB));
   }
