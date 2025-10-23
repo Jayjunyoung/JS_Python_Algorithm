@@ -8,6 +8,7 @@ function solution(n, wires) {
   }
 
   const bfs = (start, blocked) => {
+    // visited 배열은 bfs 내부에서 초기화 해야함
     let visited = new Array(n + 1).fill(false);
     let queue = [start];
     visited[start] = true;
